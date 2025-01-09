@@ -1,0 +1,41 @@
+<div id="pv-cockpit-chart">
+    <h6>Stromverbrauch und PV-Cockpit</h6>
+    <apx-chart [series]="chartOptions.series"
+               [chart]="chartOptions.chart"
+               [xaxis]="chartOptions.xaxis"
+               [plotOptions]="chartOptions.plotOptions"
+               [stroke]="chartOptions.stroke"
+               [tooltip]="chartOptions.tooltip"
+               [fill]="chartOptions.fill"
+               [legend]="chartOptions.legend"
+               [dataLabels]="chartOptions.dataLabels">
+    </apx-chart>
+    <div class="info-card">
+        <div class="info-block green-block">
+            <h4>PV-Stromertrag</h4>
+            <p>105.000 kWh p.a.</p>
+        </div>
+        <div class="info-block">
+            <h4>Stromabdeckung</h4>
+            <p>100%</p>
+        </div>
+        <div class="info-block">
+            <h4>Überdeckung</h4>
+            <p>50%</p>
+        </div>
+        <div class="info-block">
+            <h4>Gesamtverbrauch</h4>
+            <p>70,000 kWh</p>
+        </div>
+        <div class="info-block">
+            <h4>Netzbezug</h4>
+            <p>0 kWh</p>
+        </div>
+        <div class="info-block">
+            <h4>Netzeinspeisung</h4>
+            <p>35,000 kWh</p>
+        </div>
+    </div>
+    <br>
+  </div>
+  
