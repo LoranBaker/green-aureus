@@ -76,15 +76,18 @@ export class PvCockpitChartComponent {
         type: 'bar',
         height: 200,
         stacked: true,
-        background: '#fff',
+        background: '#ffffff',
         toolbar: {
           show: true
         }
       },
       plotOptions: {
         bar: {
-          horizontal: true,
-        }
+          horizontal: true, // Makes the bars horizontal instead of vertical
+          barHeight: '60%', // Adjust the height of the bars (as a percentage)
+          distributed: false, // Distributes colors for each bar individually
+          borderRadius: 4, // Rounds the corners of the bars
+        },
       },
       stroke: {
         width: 0,

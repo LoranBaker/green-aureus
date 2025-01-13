@@ -2,6 +2,8 @@
     max-width: 650px;
     margin: 0 auto;
     padding-top: 20px;
+    background-color: #ffffff;
+    border-radius: 4px;
   }
 
   h6{
@@ -12,13 +14,11 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    background-color: #f8f8f8;
-    padding: 15px;
+    background-color: #ffffff;
     border-radius: 8px;
     max-width: 78%;
     margin-left: auto;
     margin-right: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
   .info-block {
