@@ -8,7 +8,9 @@ import {
   ApexFill,
   ApexDataLabels,
   ApexPlotOptions,
-  ApexStroke
+  ApexStroke,
+  ApexTitleSubtitle,
+  ApexGrid,
 } from 'ng-apexcharts';
 import { NgApexchartsModule } from 'ng-apexcharts';
 
@@ -22,6 +24,8 @@ export type PvCockpitChartOptions = {
   dataLabels: ApexDataLabels;
   plotOptions: ApexPlotOptions;
   stroke: ApexStroke;
+  title: ApexTitleSubtitle;
+  grid: ApexGrid; 
 };
 
 @Component({
@@ -84,16 +88,16 @@ export class PvCockpitChartComponent {
       plotOptions: {
         bar: {
           horizontal: true, // Makes the bars horizontal instead of vertical
-          barHeight: '60%', // Adjust the height of the bars (as a percentage)
-          distributed: false, // Distributes colors for each bar individually
+          barHeight: '40%', // Adjust the height of the bars (as a percentage)
           borderRadius: 4, // Rounds the corners of the bars
+          distributed: false,
         },
       },
       stroke: {
         width: 0,
       },
       xaxis: {
-        categories: ['PV-Stromabdeckung', 'Gesamtverbrauch'],
+        categories: ['PV-Stromabdeckung',  'Gesamtverbrauch'],
         title: {
           text: '(kWh/Jahr)',
           style: {
@@ -101,6 +105,7 @@ export class PvCockpitChartComponent {
             fontSize: '12px'
           }
         },
+        
         labels: {
           formatter: (value: string) => `${Number(value)}`
         },
@@ -117,6 +122,10 @@ export class PvCockpitChartComponent {
           }
         }
       },
+      
+      grid: {
+        show: false, // This hides the grid lines
+      },
       fill: {
         opacity: 1,
         colors: ['#00E396', '#C0C0C0', '#FFA500', '#87CEEB', '#FF6666']
@@ -124,18 +133,32 @@ export class PvCockpitChartComponent {
       legend: {
         position: 'bottom',
         horizontalAlign: 'left',
-        offsetX: 90,
+        offsetX: -10,
         customLegendItems: filteredLegendSeries.map((item) => item.name), // Only display filtered legend names
         labels: {
-          colors: '#000'
+          colors: '#000',
         },
+        
         markers: {
-          fillColors: ['#C0C0C0', '#FFA500', '#87CEEB', '#FF6666'] // Custom markers for displayed legend items
-        }
+          fillColors: ['#C0C0C0', '#FFA500', '#87CEEB', '#FF6666'], // Custom markers for displayed legend items
+        },
+        
       },
       dataLabels: {
-        enabled: false
+        enabled:false,
+      },
+      title: { // Add title here at the top level
+        text: 'Stromverbrauch und PV-Cockpit',
+        align: 'left',
+        margin: 0,
+        offsetY: 0,
+        offsetX: 0,
+        style: {
+          fontSize: '16px',
+          fontWeight: 'bold',
+        },
       }
+      
     };
   }
 }

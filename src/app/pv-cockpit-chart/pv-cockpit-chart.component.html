@@ -1,14 +1,15 @@
 <div id="pv-cockpit-chart">
-    <h6>Stromverbrauch und PV-Cockpit</h6>
     <apx-chart [series]="chartOptions.series"
                [chart]="chartOptions.chart"
+               [title]="chartOptions.title"
                [xaxis]="chartOptions.xaxis"
                [plotOptions]="chartOptions.plotOptions"
                [stroke]="chartOptions.stroke"
                [tooltip]="chartOptions.tooltip"
                [fill]="chartOptions.fill"
                [legend]="chartOptions.legend"
-               [dataLabels]="chartOptions.dataLabels">
+               [dataLabels]="chartOptions.dataLabels"
+               [grid]="chartOptions.grid">
     </apx-chart>
     <div class="info-card">
         <div class="info-block green-block">

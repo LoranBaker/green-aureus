@@ -3,11 +3,7 @@
     margin: 0 auto;
     padding-top: 20px;
     background-color: #ffffff;
-    border-radius: 4px;
-  }
-
-  h6{
-    margin-left: 15px;
+    border-radius: 6px;
   }
   
   .info-card {
@@ -16,9 +12,8 @@
     justify-content: space-between;
     background-color: #ffffff;
     border-radius: 8px;
-    max-width: 78%;
-    margin-left: auto;
-    margin-right: 20px;
+    max-width: 100%;
+    margin: 10px;
   }
   
   .info-block {
