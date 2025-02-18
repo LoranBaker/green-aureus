@@ -1,0 +1,93 @@
+
+.switch-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-left:100px;
+}
+
+  #chart {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+  
+  .apexcharts-tooltip {
+    font-size: 12px;
+    background: #E1F7E7 !important; 
+    color: #003366; 
+  }
+  
+  .apexcharts-grid {
+    stroke: none !important;
+  }
+  
+  .apexcharts-yaxis {
+    stroke: none !important;
+  }
+  
+  .table-container {
+    padding: 1rem;
+    background-color: #E0E0E0; 
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  .custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid #003366 !important;
+  }
+  
+  .custom-table thead {
+    background: #003366; 
+    color: #FFFFFF !important;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  
+  .custom-table th,
+  .custom-table td {
+    border: 0.3px solid #CCCCCC; 
+    padding: 12px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 0.95rem;
+  }
+  
+  .custom-table thead th {
+    color: #FFFFFF !important;
+  }
+  
+  .custom-table tbody td {
+    color: #003366 !important; 
+  }
+  
+  .custom-table tbody tr:hover {
+    background: #F3F3F3;
+  }
+  
+  .custom-table td:nth-child(3), 
+  .custom-table td:nth-child(4) {
+    font-weight: bold;
+    color: #003366 !important;
+  }
+  
+  .custom-table tfoot {
+    background-color: #F3F3F3; 
+    font-weight: bold;
+  }
+  
+  .tfoot td {
+    text-align: center;
+    color: #003366 !important;
+    padding: 10px;
+  }
+  

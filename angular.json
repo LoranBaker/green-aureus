@@ -33,11 +33,13 @@
                 "node_modules/slick-carousel/slick/slick-theme.css",
                 "https://cdn.jsdelivr.net/gh/creativetimofficial/public-assets@master/material-dashboard-2-builder/v3.0.4/assets/css/nucleo-icons.css",
                 "https://cdn.jsdelivr.net/gh/creativetimofficial/public-assets@master/material-dashboard-2-builder/v3.0.4/assets/css/nucleo-svg.css",
-                "src/styles.css"
+                "src/styles.css",
+                "node_modules/leaflet/dist/leaflet.css"
             ],
             "scripts": [
                "node_modules/jquery/dist/jquery.min.js",
-                "node_modules/slick-carousel/slick/slick.min.js"
+                "node_modules/slick-carousel/slick/slick.min.js",
+                "node_modules/leaflet/dist/leaflet.js"
             ]
           },
           "configurations": {
@@ -95,9 +97,12 @@
             ],
             "styles": [
               "@angular/material/prebuilt-themes/azure-blue.css",
-              "src/styles.css"
+              "src/styles.css",
+               "node_modules/leaflet/dist/leaflet.css"
             ],
-            "scripts": []
+            "scripts": [
+               "node_modules/leaflet/dist/leaflet.js"
+            ]
           }
         }
       }

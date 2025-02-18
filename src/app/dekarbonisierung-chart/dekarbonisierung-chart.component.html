@@ -1,0 +1,72 @@
+
+
+  
+  <div id="chart">
+    
+
+    <h6>Dekarbonisierungspfad</h6>
+
+    <apx-chart
+      [series]="chartOptions.series"
+      [chart]="chartOptions.chart"
+      [xaxis]="chartOptions.xaxis"
+      [yaxis]="chartOptions.yaxis"
+      [tooltip]="chartOptions.tooltip"
+      [stroke]="chartOptions.stroke"
+      [markers]="chartOptions.markers"
+      [legend]="chartOptions.legend"
+      [fill]="chartOptions.fill"
+      [dataLabels]="chartOptions.dataLabels"
+      [grid]="chartOptions.grid"
+    ></apx-chart>
+    <div class="switch-container">
+      <div class="form-check">
+        <input 
+          class="form-check-input" 
+          type="radio" 
+          name="flexRadioDefault" 
+          id="flexRadioDefault1" 
+          [checked]="selectedSeries === 'single'"
+          (change)="toggleSeries('single')">
+        <label class="form-check-label" for="flexRadioDefault1">
+          Single Family
+        </label>
+      </div>
+    
+      <div class="form-check">
+        <input 
+          class="form-check-input" 
+          type="radio" 
+          name="flexRadioDefault" 
+          id="flexRadioDefault2" 
+          [checked]="selectedSeries === 'multi'"
+          (change)="toggleSeries('multi')">
+        <label class="form-check-label" for="flexRadioDefault2">
+          Multi Family
+        </label>
+      </div>
+    </div>
+    <div class="mt-4">
+      <table class="table table-bordered custom-table">
+        <thead>
+          <tr>
+            <th>Maßnahmen</th>
+            <th>Jahr</th>
+            <th>Stranded Asset</th>
+            <th>Strand. Ztpkt.</th>
+            <th>CO₂-Einsparungen (kg/m²)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of tableData">
+            <td>{{ row.measure }}</td>
+            <td>{{ row.year }}</td>
+            <td>{{ row.strandedAsset }}</td>
+            <td>{{ row.strandedTime }}</td>
+            <td>{{ row.co2Diff }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
