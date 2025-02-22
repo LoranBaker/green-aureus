@@ -1,0 +1,143 @@
+<div class="container-fluid my-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h3 class="mb-0">Übersicht Maßnahmen - Timeline</h3>
+    <button class="btn btn-sm btn-outline-secondary" (click)="printTable()">
+      <i class="fa fa-print me-1"></i> Print
+    </button>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table align-items-center table-hover table-timeline">
+      <thead class="thead-light">
+        <tr>
+          <th>ESG-Maßnahmen</th>
+          <th>Measures</th>
+          <th>Quartals</th>
+          <th>Confirm</th>
+          <th>Budget</th>
+          <th>Timeline</th>
+          <th>Level</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let measure of measures; let i = index">
+          <td>{{ measure.name }}</td>
+          <td>
+            <div class="position-relative">
+              <button
+                class="btn btn-sm btn-dropdown d-flex align-items-center"
+                (click)="toggleDropdown(i, 'measures')"
+              >
+                <span>
+                  {{ measure.selectedMeasures.length ? measure.selectedMeasures.join(', ') : measureOptions[0] }}
+                </span>
+                <i class="fa fa-caret-down ms-1"></i>
+              </button>
+              <div
+                class="position-absolute bg-white border p-2 mt-1"
+                *ngIf="dropdownState[i]?.measures"
+                style="z-index: 10;"
+              >
+                <label class="d-block mb-1" *ngFor="let option of measureOptions">
+                  <input
+                    type="checkbox"
+                    [checked]="measure.selectedMeasures.includes(option)"
+                    (change)="toggleCheckbox(option, measure.selectedMeasures, i)"
+                  />
+                  {{ option }}
+                </label>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="position-relative">
+              <button
+                class="btn btn-sm btn-dropdown-white d-flex align-items-center"
+                (click)="toggleDropdown(i, 'quartals')"
+              >
+                <span>{{ measure.quarter }}</span>
+                <i class="fa fa-caret-down ms-1"></i>
+              </button>
+              <div
+                class="position-absolute bg-white border p-2 mt-1"
+                *ngIf="dropdownState[i]?.quartals"
+                style="z-index: 10; max-height: 150px; overflow-y: auto;"
+              >
+                <label class="d-block" *ngFor="let quarter of quarterOptions" (click)="selectQuarter(i, quarter)">
+                  {{ quarter }}
+                </label>
+              </div>
+            </div>
+          </td>
+          <td>
+            <button
+              class="btn btn-sm btn-success"
+              (click)="handleConfirm(i)"
+            >
+              Confirm
+            </button>
+          </td>
+          <td>{{ measure.budget | currency: 'EUR' }}</td>
+          <td>
+            <div *ngIf="objectKeys(measure.confirmedOptions).length > 0; else noConfirmed">
+              <div *ngFor="let q of objectKeys(measure.confirmedOptions)">
+                <strong>{{ q }}:</strong>
+                <span *ngFor="let sel of measure.confirmedOptions[q]; let j = index">
+                  {{ sel }}<span *ngIf="j < measure.confirmedOptions[q].length - 1">, </span>
+                </span>
+              </div>
+            </div>
+            <ng-template #noConfirmed>
+              <span class="text-muted">No selected measures</span>
+            </ng-template>
+          </td>
+          <td>
+            <div class="progress-wrapper w-75 mx-auto">
+              <div class="progress-info">
+                <div class="progress-percentage">
+                  <span class="text-xs font-weight-bold">{{ measure.level || 0 }}%</span>
+                </div>
+              </div>
+              <div class="progress">
+                <div
+                  class="progress-bar"
+                  [ngClass]="{
+                    'bg-gradient-success': measure.level > 70,
+                    'bg-gradient-warning': measure.level > 30 && measure.level <= 70,
+                    'bg-gradient-danger': measure.level <= 30
+                  }"
+                  [style.width]="measure.level + '%'"
+                ></div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="7" class="text-right font-weight-bold">
+            Total: {{ totalBudget | currency: 'EUR' }}
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+
+  <!-- Modal -->
+<div class="modal" [ngClass]="{ 'd-block': showModal }" tabindex="-1" style="background: rgba(0, 0, 0, 0.5);">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirmation</h5>
+        <button type="button" class="btn-close" (click)="closeModal(false)"></button>
+      </div>
+      <div class="modal-body">
+        <p>{{ modalMessage }}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closeModal(false)">Cancel</button>
+        <button type="button" class="btn btn-success" (click)="closeModal(true)">Confirm</button>
+      </div>
+    </div>
+  </div>
+</div>
