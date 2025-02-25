@@ -172,33 +172,53 @@ export class TimelineComponent {
     measure.confirmedOptions[quarter] = [...measure.selectedMeasures];
   }
 
+  
   handleConfirm(measureIndex: number) {
     const measure = this.measures[measureIndex];
     const selectedMeasure = measure.selectedMeasures[measure.selectedMeasures.length - 1];
     const selectedMeasureIndex = this.measureOptions.indexOf(selectedMeasure);
-
-    // Do not open modal for the first measure option
+  
     if (selectedMeasureIndex === 0) {
       this.confirmSelection(measure, measure.quarter);
+      this.resetSelection(measureIndex);
       return;
     }
-
+  
     const previousOptions = this.measureOptions.slice(0, selectedMeasureIndex).join(', ');
     this.modalMessage = `You selected "${selectedMeasure}". Are you sure you don't need these: ${previousOptions}?`;
     this.showModal = true;
     this.selectedMeasureIndex = measureIndex;
   }
-
+  
   closeModal(confirm: boolean) {
     if (confirm && this.selectedMeasureIndex !== null) {
       const measure = this.measures[this.selectedMeasureIndex];
       measure.confirmedOptions[measure.quarter] = [...measure.selectedMeasures];
+  
+      this.resetSelection(this.selectedMeasureIndex);
     }
+  
     this.showModal = false;
     this.modalMessage = '';
     this.selectedMeasureIndex = null;
   }
-
+  
+  resetSelection(index: number) {
+    if (this.dropdownState[index]) {
+      this.dropdownState[index].measures = false;
+      this.dropdownState[index].quartals = false;
+    }
+  
+    this.measures[index].selectedMeasures = [];  
+  }
+  
+  
+  resetDropdown(index: number) {
+    if (this.dropdownState[index]) {
+      this.dropdownState[index].measures = false;
+      this.dropdownState[index].quartals = false;
+    }
+  }
   calculateLevel(selectedMeasures: string[]): number {
     if (!selectedMeasures.length) return 0;
 
@@ -320,7 +340,6 @@ export class TimelineComponent {
         </html>
       `;
   
-      // Write content to the new tab and close it properly after printing
       printWindow.document.open();
       printWindow.document.write(printableContent);
       printWindow.document.close();
