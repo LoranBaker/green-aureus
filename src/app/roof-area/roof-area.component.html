@@ -1,0 +1,468 @@
+<div class="main-container">
+  <header class="dashboard-header">
+    <div class="container">
+      <div class="row align-items-center py-2">
+          <h1 class="main-title">
+            PV-Cockpit "<span class="happy-sun">Happy Sun</span>"
+          </h1>
+      </div>
+    </div>
+  </header>
+
+  <div class="container mt-2">
+    <div class="section-container mb-3" style="border-radius: 15%;">
+      <!-- Two Columns Section -->
+      <div class="row mt-2">
+        <div class="col-md-6">
+          <div class="map-container">
+            <!-- Embed Google Maps in Satellite Mode -->
+            <iframe
+              src="https://www.google.com/maps/embed/v1/view?key=?"
+              width="100%"
+              height="100%"
+              frameborder="0"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+          
+        <div class="col-md-6">
+          <div class="info-card" style="border-radius: 2%;">
+            <!-- Right Content Header -->
+            <div class="card-header">
+              <h3 class="text-primary mb-3">
+      
+                <small class="text-muted">mögl. PV-Stromertrag p.a. </small>
+                <span class="energy-value">10,28 MWh</span>
+              </h3>
+              
+              <div class="energy-type-toggle">
+                <span class="me-3" [ngClass]="{'fw-bold': currentData === 'photovoltaik'}">Photovoltaik</span>
+                <label class="switch">
+                  <input type="checkbox" (change)="toggleData($event)">
+                  <span class="slider round"></span>
+                </label>
+                <span class="ms-3" [ngClass]="{'fw-bold': currentData === 'solarthermie'}">Solarthermie</span>
+              </div>
+            </div>
+            
+            <!-- Right Content List -->
+            <div class="card-body">
+              <div *ngIf="!isLoadingParams && currentData === 'photovoltaik'">
+                <div class="parameter-grid">
+                  <div class="parameter-item">
+                    <div class="parameter-label">Ausrichtung</div>
+                    <div class="parameter-value">{{ photovoltaikParams.alignment }}</div>
+                  </div>
+                  <div class="parameter-item">
+                    <div class="parameter-label">Dachneigung</div>
+                    <div class="parameter-value">{{ photovoltaikParams.roofInclination }}</div>
+                  </div>
+                  <div class="parameter-item">
+                    <div class="parameter-label">Dachfläche</div>
+                    <div class="parameter-value">{{ photovoltaikParams.roofArea }}</div>
+                  </div>
+                  <div class="parameter-item">
+                    <div class="parameter-label">Modulfläche</div>
+                    <div class="parameter-value">{{ photovoltaikParams.moduleArea }}</div>
+                  </div>
+                  <div class="parameter-item">
+                    <div class="parameter-label">Peak Leistung</div>
+                    <div class="parameter-value">{{ photovoltaikParams.peakPerformance }}</div>
+                  </div>
+                  <div class="parameter-item">
+                    <div class="parameter-label">Anzahl Panels</div>
+                    <div class="parameter-value">{{ photovoltaikParams.panelCount }}</div>
+                  </div>
+                  <div class="parameter-item">
+                    <div class="parameter-label">PV-Strompotenzial</div>
+                    <div class="parameter-value">{{ photovoltaikParams.potentialYield }}</div>
+                  </div>
+                  <div class="parameter-item">
+                    <div class="parameter-label">Art</div>
+                    <div class="parameter-value">{{ photovoltaikParams.moduleType }}</div>
+                  </div>
+                  <div class="parameter-item">
+                    <div class="parameter-label">Einsatz</div>
+                    <div class="parameter-value">{{ photovoltaikParams.usage }}</div>
+                  </div>
+                  <div class="parameter-item">
+                    <div class="parameter-label">Speichergröße</div>
+                    <div class="parameter-value">{{ photovoltaikParams.storageSize }}</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div *ngIf="!isLoadingParams && currentData === 'solarthermie'">
+                <div class="parameter-grid">
+                  <div class="parameter-item">
+                    <div class="parameter-label">Ausrichtung</div>
+                    <div class="parameter-value">{{ solarthermieParams.alignment }}</div>
+                  </div>
+                  <div class="parameter-item">
+                    <div class="parameter-label">Dachneigung</div>
+                    <div class="parameter-value">{{ solarthermieParams.roofInclination }}</div>
+                  </div>
+                  <div class="parameter-item">
+                    <div class="parameter-label">Dachfläche</div>
+                    <div class="parameter-value">{{ solarthermieParams.roofArea }}</div>
+                  </div>
+                  <div class="parameter-item">
+                    <div class="parameter-label">Modulfläche</div>
+                    <div class="parameter-value">{{ solarthermieParams.moduleArea }}</div>
+                  </div>
+                  <div class="parameter-item">
+                    <div class="parameter-label">Peak Leistung</div>
+                    <div class="parameter-value">{{ solarthermieParams.peakPerformance }}</div>
+                  </div>
+                  <div class="parameter-item">
+                    <div class="parameter-label">Anzahl Panels</div>
+                    <div class="parameter-value">{{ solarthermieParams.panelCount }}</div>
+                  </div>
+                  <div class="parameter-item">
+                    <div class="parameter-label">PV-Strompotenzial</div>
+                    <div class="parameter-value">{{ solarthermieParams.potentialYield }}</div>
+                  </div>
+                  <div class="parameter-item">
+                    <div class="parameter-label">Art</div>
+                    <div class="parameter-value">{{ solarthermieParams.moduleType }}</div>
+                  </div>
+                  <div class="parameter-item">
+                    <div class="parameter-label">Einsatz</div>
+                    <div class="parameter-value">{{ solarthermieParams.usage }}</div>
+                  </div>
+                  <div class="parameter-item">
+                    <div class="parameter-label">Speichergröße</div>
+                    <div class="parameter-value">{{ solarthermieParams.storageSize }}</div>
+                  </div>
+                  <div class="parameter-item">
+                    <div class="parameter-label">Vorlauftemperatur</div>
+                    <div class="parameter-value">{{ solarthermieParams.flowTemperature }}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Storage Option Section -->
+    <div class="section-container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="option-toggle-container">
+            <span class="fw-bold" id="mitSpeicherLabel">Mit Speicher</span>
+            <label class="switch mx-3">
+              <input type="checkbox" id="storageToggle">
+              <span class="slider round"></span>
+            </label>
+            <span id="ohneSpeicherLabel">Ohne Speicher</span>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="option-toggle-container">
+            <span class="fw-bold" id="productionLabel">Max. Stromproduktion</span>
+            <label class="switch mx-3">
+              <input type="checkbox" id="productionToggle">
+              <span class="slider round"></span>
+            </label>
+            <span id="coverageLabel">Max. Stromabdeckung</span>
+          </div>
+        </div>
+        <div class="col-md-4 text-end">
+          <div class="price-display">
+            <span>Ihr Strompreis:</span>
+            <div class="price-input-container">
+              <input 
+                type="text" 
+                class="price-input" 
+                [ngModel]="strompreis" 
+                (input)="updateStrompreis($event)" 
+                maxlength="5" 
+                aria-label="Strompreis eingeben" />
+              <span class="price-unit">€</span>
+            </div>
+          </div>
+      </div>
+    </div>
+    
+    <!-- Four Boxes Section -->
+    <div class="section-container" >
+      <div class="row" >
+        <div class="col-md-3" >
+          <div class="stat-card" >
+            <div class="stat-icon" >
+              <i class="fas fa-calculator"></i>
+            </div>
+            <div class="stat-content" >
+              <h6 class="stat-label">PV-Profit ermitteln</h6>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-leaf"></i>
+            </div>
+            <div class="stat-content">
+              <h6 class="stat-label">CO2-Ersparnis p.a.</h6>
+              <div class="stat-value">{{co2Savings}}</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-euro-sign"></i>
+            </div>
+            <div class="stat-content">
+              <h6 class="stat-label">Kosten Ersparnis p.a.</h6>
+              <div class="stat-value">{{ costSavings }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-exchange-alt"></i>
+            </div>
+            <div class="stat-content">
+              <h6 class="stat-label">Ertrag Stromverkauf</h6>
+              <div class="stat-value">{{salesRevenue}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Stromverbrauch und PV-Nutzen section -->
+    <div class="content-section">
+      <div class="section-header-alt">
+        <h4><i class="fas fa-bolt me-2"></i> Stromverbrauch und PV-Nutzen</h4>
+      </div>
+      <div class="row mt-3">
+        <div class="col-md-4">
+          <div class="info-box">
+            <div class="info-item">
+              <div class="info-label">PV-Stromertrag</div>
+              <div class="info-value">{{ energyOutputData.pvYield}}</div>
+            </div>
+            <div class="divider"></div>
+            <div class="info-item">
+              <div class="info-label">Überschusseinspeisung Netz</div>
+              <div class="info-value">{{ ueberschusseinspeisung }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="info-box highlight">
+            <div class="info-item">
+              <div class="info-label">Gesamtverbrauch</div>
+              <div class="info-value">{{ energyOutputData.gridFeedIn}}</div>
+            </div>
+            <div class="divider"></div>
+            <div class="info-item">
+              <div class="info-label">Netzbezug</div>
+              <div class="info-value">{{netzbezug}}</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="info-box">
+            <div class="info-item">
+              <div class="info-label">Eigenverbrauch PV-Strom</div>
+              <div class="info-value">{{ energyOutputData.eigenverbrauch }}</div>
+            </div>
+            <div class="divider"></div>
+            <div class="info-item">
+              <div class="info-label">Autarkie</div>
+              <div class="info-value progress-value">
+                <div class="progress">
+                  <div class="progress-bar bg-success" role="progressbar" 
+                       [style.width]="autarkiePercentage + '%'" 
+                       style="height: 100%;"
+                       [attr.aria-valuenow]="autarkiePercentage" 
+                       aria-valuemin="0" 
+                       aria-valuemax="100">{{ autarkiePercentage }}%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Solar-Leistungsprognose section -->
+    <div class="content-section">
+      <div class="section-header-alt">
+        <h4><i class="fas fa-chart-line me-2"></i> Ihre Solar-Leistungsprognose für max. Unabhängigkeit</h4>
+      </div>
+      
+      <div class="row mt-3">
+        <div class="col-md-6">
+          <div class="prognosis-card">
+            <div class="prognosis-header">
+              <i class="fas fa-cloud-sun me-2"></i> Klimadaten
+            </div>
+            <div class="prognosis-body">
+              <div class="prognosis-grid">
+                <div class="prognosis-item">
+                  <div class="item-label">Sonnenstunden p.a.</div>
+                  <div class="item-value">{{ sunHoursPAFormatted }}</div>
+                </div>
+                <div class="prognosis-item">
+                  <div class="item-label">Heizperiode</div>
+                  <div class="item-value">{{ heatingPeriodFormatted }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="prognosis-card">
+            <div class="prognosis-header">
+              <i class="fas fa-calculator me-2"></i> Berechnungsgrundlage
+            </div>
+            <div class="prognosis-body">
+              <div class="prognosis-grid">
+                <div class="prognosis-item">
+                  <div class="item-label">{{ storageText }}</div>
+                  <div class="item-value"><i class="fas fa-check-circle text-success"></i></div>
+                </div>
+                <div class="prognosis-item">
+                  <div class="item-label">{{ productionText }}</div>
+                  <div class="item-value"><i class="fas fa-check-circle text-success"></i></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Energiebilanz Chart section -->
+<div class="content-section">
+  <div class="section-header-alt">
+    <h4><i class="fas fa-chart-bar me-2"></i> Energiebilanz im Jahresüberblick</h4>
+  </div>
+  
+  <div class="energy-balance-container">
+    <div class="balance-stats">
+      <div class="balance-stat-item">
+        <span class="stat-label">Stromüberschuss: </span>
+        <span class="stat-value">{{ stromuberschussPercentage }}%</span>
+      </div>
+      <div class="balance-stat-item">
+        <span class="stat-label">Mehrwert p.a.: </span>
+        <span class="stat-value">{{ mehrwertTotal }}</span>
+      </div>
+    </div>
+    
+    <!-- D3.js Chart Container - Replaced the placeholder -->
+    <div #chartContainer class="chart-container"></div>
+    
+    <div class="chart-legend">
+      <div class="legend-item">
+        <span class="color-box demand"></span>
+        <span>Strombedarf</span>
+      </div>
+      <div class="legend-item">
+        <span class="color-box self-consumption"></span>
+        <span>Eigenverbrauch PV-Strom</span>
+      </div>
+      <div class="legend-item">
+        <span class="color-box grid-usage"></span>
+        <span>Netzbezug</span>
+      </div>
+      <div class="legend-item">
+        <span class="color-box grid-feed"></span>
+        <span>Netzeinspeisung</span>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    <!-- Results section -->
+    <div class="results-section">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="results-card">
+            <div class="results-header">
+              <h4><i class="fas fa-calendar-check me-2"></i> Ergebnisse nach 15 J.</h4>
+            </div>
+            <div class="results-body">
+              <table class="results-table">
+                <tbody>
+                  <tr>
+                    <td>Kosten ohne PV</td>
+                    <td class="value negative">-{{ costsWithoutPVFormatted}}</td>
+                  </tr>
+                  <tr>
+                    <td>Kosten mit PV</td>
+                    <td class="value negative">{{costsWithPVFormatted}}</td>
+                  </tr>
+                  <tr>
+                    <td>Stromkosten gespart</td>
+                    <td class="value positive">{{ stromkostenGespartFormatted }}</td>
+                  </tr>
+                  <tr>
+                    <td>Ertrag Stromverkauf</td>
+                    <td class="value positive">{{ertragStromverkauf15JFormatted}}</td>
+                  </tr>
+                  <tr>
+                    <td>Investition für PV*</td>
+                    <td class="value negative">{{ investmentCostFormatted }}</td>
+                  </tr>
+                  <tr class="total-row">
+                    <td>Ersparnisse nach Invest</td>
+                    <td class="value positive">{{ ersparnisseNachInvestFormatted }}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="footnote">* ohne Betriebskosten PV</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="results-card facts-card">
+            <div class="results-header">
+              <h4><i class="fas fa-leaf me-2"></i> Facts nach 15 J.</h4>
+            </div>
+            <div class="results-body">
+              <div class="facts-container">
+                <div class="fact-item">
+                  <div class="fact-icon">
+                    <i class="fas fa-smog"></i>
+                  </div>
+                  <div class="fact-content">
+                    <div class="fact-label">CO2-Ersparnis</div>
+                    <div class="fact-value">{{ co2SavingsTonsFormatted }}</div>
+                  </div>
+                </div>
+                <div class="fact-item">
+                  <div class="fact-icon">
+                    <i class="fas fa-tree"></i>
+                  </div>
+                  <div class="fact-content">
+                    <div class="fact-label">CO2-Ersparnis /Bäume</div>
+                    <div class="fact-value">{{ equivalentTreesFormatted }} Bäume</div>
+                  </div>
+                </div>
+                <div class="fact-item highlight">
+                  <div class="fact-icon">
+                    <i class="fas fa-clock"></i>
+                  </div>
+                  <div class="fact-content">
+                    <div class="fact-label">Break-Even schon in:</div>
+                    <div class="fact-value">{{ breakEvenYearsFormatted }}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

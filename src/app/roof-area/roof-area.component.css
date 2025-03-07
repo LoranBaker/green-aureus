@@ -1,0 +1,835 @@
+
+
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --success-color: #28a745;
+  --info-color: #17a2b8;
+  --warning-color: #ffc107;
+  --danger-color: #dc3545;
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
+  --solar-yellow: #FFD700;
+  --solar-orange: #FF8C00;
+  --solar-blue: #1E90FF;
+  --solar-green: #3CB371;
+  --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --hover-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  --border-radius: 10px;
+  --section-bg: #f5f7fa;
+  --section-border: #eaecf0;
+}
+
+body {
+  background-color: #f0f2f5;
+}
+
+/* Main Container */
+.main-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  background-color: #f0f2f5;
+  box-shadow: var(--card-shadow);
+}
+
+/* Header Styles */
+.dashboard-header {
+  background: linear-gradient(135deg, var(--solar-blue), #004d99);
+  color: white;
+  padding: 10px 0;
+  border-bottom: 5px solid var(--solar-yellow);
+}
+
+.main-title {
+  font-size: 2rem;
+  margin-bottom: 0;
+}
+
+.happy-sun {
+  color: var(--solar-yellow);
+  font-weight: bold;
+}
+
+/* Section Backgrounds */
+.container {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.section-container {
+  background-color: var(--section-bg);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--section-border);
+  padding: 20px;
+  margin-bottom: 25px;
+}
+
+/* Section Headers */
+.section-header {
+  margin-bottom: 15px;
+}
+
+.section-header .badge {
+  font-size: 1rem;
+  padding: 8px 15px;
+  font-weight: 500;
+}
+
+.section-header-alt {
+  border-bottom: 2px solid var(--solar-blue);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.section-header-alt h4 {
+  color: var(--solar-blue);
+  font-weight: 600;
+}
+
+/* Map Container */
+.map-container {
+  position: relative;
+  height: 450px;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+}
+
+.map-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  opacity: 0.7;
+}
+
+.sun-icon {
+  width: 60px;
+  height: 60px;
+  background-color: var(--solar-yellow);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
+}
+
+/* Info Card */
+.info-card {
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+  height: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-header {
+  background-color: var(--light-color);
+  padding: 15px 20px;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+  border-bottom: 2px solid var(--solar-blue);
+}
+
+.energy-value {
+  color: var(--solar-blue);
+  font-weight: bold;
+}
+
+.card-body {
+  padding: 20px;
+  flex-grow: 1;
+}
+
+/* Parameter Grid */
+.parameter-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.parameter-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.parameter-label {
+  font-weight: 600;
+  color: var(--secondary-color);
+  font-size: 0.9rem;
+}
+
+.parameter-value {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* Toggle Switch */
+.energy-type-toggle, .option-toggle-container {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border: 2px solid var(--solar-green);
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px var(--solar-blue);
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* Price Display */
+.price-display {
+  background-color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.price-value {
+  font-weight: bold;
+  color: var(--solar-orange);
+  margin-left: 10px;
+  font-size: 1.2rem;
+}
+
+/* Stat Cards */
+.stat-card {
+  background-color: white;
+  border-radius: 3%;
+  padding: 15px;
+  box-shadow: var(--card-shadow);
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  min-height: 100px;
+  margin-bottom: 15px;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--hover-shadow);
+}
+
+.stat-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--light-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  font-size: 1.5rem;
+  color: var(--solar-blue);
+}
+
+.stat-content {
+  flex-grow: 1;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--secondary-color);
+  margin-bottom: 5px;
+}
+
+.stat-value {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--solar-blue);
+}
+
+/* Info Boxes */
+.info-box {
+  background-color: white;
+  border-radius: 3%;
+  padding: 20px;
+  box-shadow: var(--card-shadow);
+  height: 100%;
+  margin-bottom: 15px;
+}
+
+.info-box.highlight {
+  border-left: 4px solid var(--solar-green);
+}
+
+.info-item {
+  margin-bottom: 10px;
+}
+
+.info-label {
+  font-size: 0.9rem;
+  color: var(--secondary-color);
+  margin-bottom: 5px;
+}
+
+.info-value {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--dark-color);
+}
+
+.divider {
+  height: 1px;
+  background-color: #eee;
+  margin: 15px 0;
+}
+
+/* Progress Bar */
+.progress {
+  height: 12px;
+  border-radius: 6px;
+  background-color: #e9ecef;
+  margin-top: 5px;
+}
+
+.progress-value {
+  margin-top: 10px;
+}
+
+/* Content Section */
+.content-section {
+  margin-bottom: 20px;
+  background-color: var(--section-bg);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  border: 1px solid var(--section-border);
+}
+
+/* Prognosis Cards */
+.prognosis-card {
+  background-color: white;
+  border-radius: 2%;
+  box-shadow: var(--card-shadow);
+  height: 100%;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.prognosis-header {
+  background-color: var(--solar-blue);
+  color: var(--light-color);
+  padding: 12px 20px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.prognosis-body {
+  padding: 20px;
+}
+
+.prognosis-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.prognosis-item {
+  text-align: center;
+}
+
+.item-label {
+  font-size: 0.9rem;
+  color: var(--secondary-color);
+  margin-bottom: 8px;
+}
+
+.item-value {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--dark-color);
+}
+
+/* Chart Section */
+.energy-balance-container {
+  background-color: white;
+  border-radius: 1%;
+  padding: 20px;
+  box-shadow: var(--card-shadow);
+  margin-bottom: 15px;
+}
+
+.balance-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.balance-stat-item {
+  font-size: 1.1rem;
+}
+
+.balance-stat-item .stat-value {
+  font-weight: 600;
+  color: var(--solar-green);
+}
+
+.chart-placeholder {
+  height: 300px;
+  background-color: #f9f9f9;
+  border: 2px dashed #ddd;
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary-color);
+}
+
+.chart-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  color: #ccc;
+}
+
+
+/* Chart Legend */
+.chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 15px;
+  gap: 20px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  font-size: 14px;
+}
+
+.color-box {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  border-radius: 3px;
+}
+
+.color-box.demand {
+  background-color: #FF5722; /* Orange-red for Strombedarf */
+}
+
+.color-box.self-consumption {
+  background-color: #4CAF50; /* Green for Eigenverbrauch */
+}
+
+.color-box.grid-usage {
+  background-color: #9E9E9E; /* Gray for Netzbezug */
+}
+
+.color-box.grid-feed {
+  background-color: #2196F3; /* Blue for Netzeinspeisung */
+}
+
+/* Style the tooltip */
+.energy-chart-tooltip {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 8px 12px;
+  pointer-events: none;
+  font-size: 12px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: opacity 0.2s;
+  min-width: 120px;
+}
+
+.energy-chart-tooltip strong {
+  display: block;
+  margin-bottom: 3px;
+  color: #333;
+}
+
+/* Style the markers on the Strombedarf line */
+.dot-strombedarf {
+  transition: all 0.2s;
+}
+
+.dot-strombedarf:hover {
+  cursor: pointer;
+}
+/* Results Section */
+.results-section {
+  background-color: var(--section-bg);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  margin-bottom: 25px;
+  border: 1px solid var(--section-border);
+}
+
+.results-card {
+  background-color: white;
+  border-radius: 2%;
+  box-shadow: var(--card-shadow);
+  height: 100%;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+/* Styles for the price input */
+.price-input-container {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+}
+
+.price-input {
+  width: 50px;
+  padding: 2px 4px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  text-align: right;
+  font-weight: bold;
+  color: #212529;
+  margin-left: 5px;
+}
+
+.price-unit {
+  margin-left: 4px;
+  font-weight: bold;
+}
+
+/* Focus styles */
+.price-input:focus {
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+.results-header {
+  background-color: var(--solar-blue);
+  color: white;
+  padding: 12px 20px;
+}
+
+.results-header h4 {
+  margin-bottom: 0;
+  font-size: 1.2rem;
+}
+
+.results-body {
+  padding: 20px;
+}
+
+.results-table {
+  width: 100%;
+}
+
+.results-table td {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.results-table td.value {
+  text-align: right;
+  font-weight: 600;
+}
+
+.results-table .value.positive {
+  color: var(--solar-green);
+}
+
+.results-table .value.negative {
+  color: var(--danger-color);
+}
+
+.results-table .total-row {
+  font-weight: 700;
+  border-top: 2px solid #ddd;
+}
+
+.results-table .total-row td {
+  padding-top: 15px;
+}
+
+.footnote {
+  font-size: 0.8rem;
+  color: var(--secondary-color);
+  margin-top: 15px;
+  font-style: italic;
+}
+
+/* Facts Card */
+.facts-card .results-header {
+  background-color: var(--solar-green);
+}
+
+.facts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.fact-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  border-radius: var(--border-radius);
+  background-color: var(--light-color);
+  transition: transform 0.2s;
+}
+
+.fact-item:hover {
+  transform: translateX(5px);
+}
+
+.fact-item.highlight {
+  background-color: rgba(255, 215, 0, 0.1);
+  border-left: 3px solid var(--solar-yellow);
+}
+
+.fact-icon {
+  font-size: 1.8rem;
+  color: var(--solar-blue);
+  margin-right: 15px;
+  width: 40px;
+  text-align: center;
+}
+
+.fact-content {
+  flex-grow: 1;
+}
+
+.fact-label {
+  font-size: 0.9rem;
+  color: var(--secondary-color);
+}
+
+.fact-value {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--dark-color);
+}
+
+/* Footer */
+.dashboard-footer {
+  background-color: white;
+  border-top: 1px solid #eee;
+  padding: 20px 0;
+  color: var(--secondary-color);
+  margin-top: 20px;
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+}
+
+/* Energy Balance Chart Styles */
+.energy-balance-container {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 15px;
+}
+
+.balance-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.balance-stat-item {
+  padding: 10px 15px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+.stat-value {
+  font-weight: bold;
+  color: #28a745;
+  margin-left: 5px;
+}
+
+/* Chart Container */
+.chart-container {
+  width: 100%;
+  height: 400px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  margin: 15px 0;
+  padding: 15px;
+  overflow: hidden;
+}
+
+/* Chart Legend */
+.chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 15px;
+  gap: 20px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.color-box {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+  border-radius: 3px;
+}
+
+.color-box.demand {
+  background-color: #FF5722; /* Orange-red for demand */
+}
+
+.color-box.self-consumption {
+  background-color: #4CAF50; /* Green for self-consumption */
+}
+
+.color-box.grid-usage {
+  background-color: #9E9E9E; /* Gray for grid usage */
+}
+
+.color-box.grid-feed {
+  background-color: #2196F3; /* Blue for grid feed-in */
+}
+
+/* D3.js Chart specific styles */
+.bar-self-consumption {
+  fill: #4CAF50;
+}
+
+.bar-grid-feed {
+  fill: #2196F3;
+}
+
+.bar-grid-usage {
+  fill: #9E9E9E;
+}
+
+.line-demand {
+  stroke: #FF5722;
+  stroke-width: 2;
+  fill: none;
+}
+
+.dot-demand {
+  fill: #FF5722;
+}
+
+.axis-label {
+  font-size: 12px;
+  fill: #6c757d;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .parameter-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .prognosis-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .balance-stats {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .chart-legend {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .legend-item {
+    margin: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 1.5rem;
+  }
+  
+  .map-container {
+    height: 350px;
+    margin-bottom: 20px;
+  }
+  
+  .content-section {
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 576px) {
+  .parameter-item, .prognosis-item {
+    text-align: left;
+  }
+  
+  .info-value, .item-value, .stat-value {
+    font-size: 1rem;
+  }
+  
+  .fact-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .fact-icon {
+    margin-bottom: 10px;
+  }
+}
