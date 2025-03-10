@@ -188,53 +188,56 @@
     </div>
     
     <!-- Four Boxes Section -->
-    <div class="section-container" >
-      <div class="row" >
-        <div class="col-md-3" >
-          <div class="stat-card" >
-            <div class="stat-icon" >
-              <i class="fas fa-calculator"></i>
-            </div>
-            <div class="stat-content" >
-              <h6 class="stat-label">PV-Profit ermitteln</h6>
-            </div>
-          </div>
+    <div class="section-container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="stat-card" style="cursor: pointer;" (click)="calculatePVProfit()">
+        <div class="stat-icon">
+          <i class="fas fa-calculator"></i>
         </div>
-        <div class="col-md-3">
-          <div class="stat-card">
-            <div class="stat-icon">
-              <i class="fas fa-leaf"></i>
-            </div>
-            <div class="stat-content">
-              <h6 class="stat-label">CO2-Ersparnis p.a.</h6>
-              <div class="stat-value">{{co2Savings}}</div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="stat-card">
-            <div class="stat-icon">
-              <i class="fas fa-euro-sign"></i>
-            </div>
-            <div class="stat-content">
-              <h6 class="stat-label">Kosten Ersparnis p.a.</h6>
-              <div class="stat-value">{{ costSavings }}</div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="stat-card">
-            <div class="stat-icon">
-              <i class="fas fa-exchange-alt"></i>
-            </div>
-            <div class="stat-content">
-              <h6 class="stat-label">Ertrag Stromverkauf</h6>
-              <div class="stat-value">{{salesRevenue}}</div>
-            </div>
+        <div class="stat-content">
+          <h6 class="stat-label">PV-Profit ermitteln</h6>
+          <div class="stat-value">
+            <button class="btn btn-success btn-sm">Berechnen</button>
           </div>
         </div>
       </div>
     </div>
+    <div class="col-md-3">
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="fas fa-leaf"></i>
+        </div>
+        <div class="stat-content">
+          <h6 class="stat-label">CO2-Ersparnis p.a.</h6>
+          <div class="stat-value">{{ profitCalculated ? co2Savings : '---' }}</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="fas fa-euro-sign"></i>
+        </div>
+        <div class="stat-content">
+          <h6 class="stat-label">Kosten Ersparnis p.a.</h6>
+          <div class="stat-value">{{ profitCalculated ? costSavings : '---' }}</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="fas fa-exchange-alt"></i>
+        </div>
+        <div class="stat-content">
+          <h6 class="stat-label">Ertrag Stromverkauf</h6>
+          <div class="stat-value">{{ profitCalculated ? salesRevenue : '---' }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
     
     <!-- Stromverbrauch und PV-Nutzen section -->
     <div class="content-section">

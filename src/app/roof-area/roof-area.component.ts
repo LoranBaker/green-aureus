@@ -57,7 +57,7 @@ export class RoofAreaComponent implements OnInit, AfterViewInit, OnDestroy {
   currentData: string = 'photovoltaik';
   withStorage: boolean = true;
   maxProduction: boolean = true;
-  strompreis: string = '0,31'; // Property for electricity price
+  strompreis: string = '0'; // Property for electricity price
   readonly CO2_FACTOR: number = 0.3; // kg CO2 per kWh of grid electricity
   readonly FEED_IN_TARIFF: number = 0.081; // € per kWh fed into the grid
   readonly YEARS_PROJECTION: number = 15; // Number of years for projections
@@ -175,6 +175,33 @@ export class RoofAreaComponent implements OnInit, AfterViewInit, OnDestroy {
       this.resizeObserver.disconnect();
     }
   }
+
+  // Add this property to the RoofAreaComponent class:
+profitCalculated: boolean = false;
+
+// Add this method to the RoofAreaComponent class:
+calculatePVProfit(): void {
+  // Check if user has entered a valid electricity price
+  if (!this.strompreis || parseFloat(this.strompreis.replace(',', '.')) <= 0) {
+    // Show alert if no valid price has been entered
+    alert('Bitte geben Sie zunächst einen gültigen Strompreis ein.');
+    return;
+  }
+
+  // Recalculate monthly data and outputs based on current inputs
+  this.calculateMonthlyEnergyData();
+  
+  // Update calculated values
+  this.energyOutputData.gridFeedIn = this.calculatedGridFeedIn;
+  this.energyOutputData.pvYield = this.calculatedPVYield;
+  this.energyOutputData.eigenverbrauch = this.totalEigenverbrauchFormatted;
+  
+  // Mark profit as calculated to display the values
+  this.profitCalculated = true;
+  
+  // Update chart
+  this.updateChart();
+}
 
   // Computed property for current parameters
   get currentParameters(): PVParameters {
