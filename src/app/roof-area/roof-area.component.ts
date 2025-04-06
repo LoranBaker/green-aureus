@@ -176,7 +176,22 @@ export class RoofAreaComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
-  // Add this property to the RoofAreaComponent class:
+
+  searchQuery: string = '';
+
+
+onSearchInput(event: any): void {
+
+  console.log('Searching for:', this.searchQuery);
+
+}
+
+// Clear search field
+clearSearch(): void {
+  this.searchQuery = '';
+  console.log('Search cleared');
+}
+
 profitCalculated: boolean = false;
 
 // Add this method to the RoofAreaComponent class:

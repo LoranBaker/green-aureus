@@ -8,7 +8,25 @@
       </div>
     </div>
   </header>
-
+  <div class="apple-search-container">
+    <div class="container">
+      <div class="search-wrapper">
+        <div class="search-icon">
+          <i class="fas fa-search"></i>
+        </div>
+        <input 
+          type="text" 
+          class="search-input" 
+          placeholder="Suchen..." 
+          [(ngModel)]="searchQuery" 
+          (input)="onSearchInput($event)"
+          aria-label="Suche">
+        <div class="search-clear" *ngIf="searchQuery" (click)="clearSearch()">
+          <i class="fas fa-times-circle"></i>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="container mt-2">
     <div class="section-container mb-3" style="border-radius: 15%;">
       <!-- Two Columns Section -->

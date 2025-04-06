@@ -1,0 +1,969 @@
+﻿{
+   "photovoltaicExistenceConfidence" : 0.34,
+   "photovoltaic" : false,
+   "solarThermalExistenceConfidence" : 0.81,
+   "solarThermal" : true,
+   "convertedAtticExistenceConfidence" : 0.33,
+   "convertedAttic" : false,
+   "flatRoofExistenceConfidence" : 0.97,
+   "flatRoof" : true,
+   "timestampOrthophoto" : "2021-05-31Z",
+   "additionalRoofsArea" : 0,
+   "additionalRoofsCount" : 0,
+   "addressesCount" : 4,
+   "agriculturalBuildingsOnParcel" : false,
+   "agriculturalBuildingsOnParcelCount" : 0,
+   "areaRoofOrientationNne" : 0,
+   "areaRoofOrientationNnw" : 449.26,
+   "areaRoofOrientationEne" : 0,
+   "areaRoofOrientationEse" : 0,
+   "areaRoofOrientationSse" : 447.72,
+   "areaRoofOrientationSsw" : 0,
+   "areaRoofOrientationUndefined" : 3024.59,
+   "areaRoofOrientationWnw" : 0,
+   "areaRoofOrientationWsw" : 0,
+   "buildingAddresses" : [
+      {
+         "federalState" : "Hessen",
+         "place" : "Frankfurt",
+         "postalCode" : "60313",
+         "district" : "Innenstadt",
+         "street" : "Große Friedberger Straße",
+         "houseNumber" : "26",
+         "easting" : 477581.758,
+         "northing" : 5551544.375,
+         "utmZone" : 32
+      },
+      {
+         "federalState" : "Hessen",
+         "place" : "Frankfurt",
+         "postalCode" : "60313",
+         "district" : "Innenstadt",
+         "street" : "Große Friedberger Straße",
+         "houseNumber" : "28",
+         "easting" : 477589.468,
+         "northing" : 5551568.176,
+         "utmZone" : 32
+      },
+      {
+         "federalState" : "Hessen",
+         "place" : "Frankfurt",
+         "postalCode" : "60313",
+         "district" : "Innenstadt",
+         "street" : "Konrad-Adenauer-Straße",
+         "houseNumber" : "7",
+         "easting" : 477643.746,
+         "northing" : 5551578.824,
+         "utmZone" : 32
+      },
+      {
+         "federalState" : "Hessen",
+         "place" : "Frankfurt",
+         "postalCode" : "60313",
+         "district" : "Innenstadt",
+         "street" : "Große Friedberger Straße",
+         "houseNumber" : "38",
+         "easting" : 477592.574,
+         "northing" : 5551600.716,
+         "utmZone" : 32
+      }
+   ],
+   "buildingArea" : 3851.87,
+   "avalancheRiskZone" : "false",
+   "buildingCategory" : "COMMERCIAL",
+   "buildingChangeArea" : 3.3748704e-5,
+   "buildingChangeVolume" : 1.1654428000000001e-6,
+   "buildingChangeYear" : 2022,
+   "buildingFloorsCount" : 3,
+   "buildingId" : "DEHE06200001bNUY",
+   "buildingLevelOfDetail" : 2,
+   "buildingLivingSpace" : 21143.53,
+   "buildingParts" : [
+      {
+         "gmlId" : "GUID_1488958994062_20456025",
+         "roofType" : "FLAT_ROOF",
+         "floorCount" : "",
+         "levelOfDetail" : "2",
+         "measuredHeight" : 11.893,
+         "dataSourceFloorCount" : "CALCULATED",
+         "dataSourceMeasuredHeight" : "laserscan"
+      },
+      {
+         "gmlId" : "UUID_ef67f09d-4e59-402a-a9d0-8ed3ee6e6e94",
+         "roofType" : "ARCHED_ROOF",
+         "floorCount" : "",
+         "levelOfDetail" : "2",
+         "measuredHeight" : 30.694,
+         "dataSourceFloorCount" : "CALCULATED",
+         "dataSourceMeasuredHeight" : "laserscan"
+      },
+      {
+         "gmlId" : "GUID_1488958994062_20456010",
+         "roofType" : "FLAT_ROOF",
+         "floorCount" : "",
+         "levelOfDetail" : "2",
+         "measuredHeight" : 16.675,
+         "dataSourceFloorCount" : "CALCULATED",
+         "dataSourceMeasuredHeight" : "laserscan"
+      },
+      {
+         "gmlId" : "GUID_1488958994062_20456026",
+         "roofType" : "ARCHED_ROOF",
+         "floorCount" : "",
+         "levelOfDetail" : "2",
+         "measuredHeight" : 30.694,
+         "dataSourceFloorCount" : "CALCULATED",
+         "dataSourceMeasuredHeight" : "laserscan"
+      },
+      {
+         "gmlId" : "GUID_1488958994062_20456007",
+         "roofType" : "FLAT_ROOF",
+         "floorCount" : "",
+         "levelOfDetail" : "2",
+         "measuredHeight" : 30.923000000000002,
+         "dataSourceFloorCount" : "CALCULATED",
+         "dataSourceMeasuredHeight" : "laserscan"
+      },
+      {
+         "gmlId" : "GUID_1488958994062_20456035",
+         "roofType" : "FLAT_ROOF",
+         "floorCount" : "",
+         "levelOfDetail" : "2",
+         "measuredHeight" : 29.379,
+         "dataSourceFloorCount" : "CALCULATED",
+         "dataSourceMeasuredHeight" : "laserscan"
+      },
+      {
+         "gmlId" : "GUID_1488958994062_20456020",
+         "roofType" : "FLAT_ROOF",
+         "floorCount" : "",
+         "levelOfDetail" : "2",
+         "measuredHeight" : 23.096,
+         "dataSourceFloorCount" : "CALCULATED",
+         "dataSourceMeasuredHeight" : "laserscan"
+      },
+      {
+         "gmlId" : "GUID_1488958994062_20456005",
+         "roofType" : "FLAT_ROOF",
+         "floorCount" : "",
+         "levelOfDetail" : "2",
+         "measuredHeight" : 16.675,
+         "dataSourceFloorCount" : "CALCULATED",
+         "dataSourceMeasuredHeight" : "laserscan"
+      },
+      {
+         "gmlId" : "GUID_1488958994062_20456032",
+         "roofType" : "FLAT_ROOF",
+         "floorCount" : "",
+         "levelOfDetail" : "2",
+         "measuredHeight" : 16.675,
+         "dataSourceFloorCount" : "CALCULATED",
+         "dataSourceMeasuredHeight" : "laserscan"
+      },
+      {
+         "gmlId" : "GUID_1488958994062_20456006",
+         "roofType" : "FLAT_ROOF",
+         "floorCount" : "",
+         "levelOfDetail" : "2",
+         "measuredHeight" : 25.681,
+         "dataSourceFloorCount" : "CALCULATED",
+         "dataSourceMeasuredHeight" : "laserscan"
+      },
+      {
+         "gmlId" : "GUID_1488958994062_20456009",
+         "roofType" : "FLAT_ROOF",
+         "floorCount" : "",
+         "levelOfDetail" : "2",
+         "measuredHeight" : 30.923000000000002,
+         "dataSourceFloorCount" : "CALCULATED",
+         "dataSourceMeasuredHeight" : "laserscan"
+      },
+      {
+         "gmlId" : "GUID_1488958994062_20456030",
+         "roofType" : "FLAT_ROOF",
+         "floorCount" : "",
+         "levelOfDetail" : "2",
+         "measuredHeight" : 18.101,
+         "dataSourceFloorCount" : "CALCULATED",
+         "dataSourceMeasuredHeight" : "laserscan"
+      },
+      {
+         "gmlId" : "GUID_1488958994062_20456024",
+         "roofType" : "ARCHED_ROOF",
+         "floorCount" : "",
+         "levelOfDetail" : "2",
+         "measuredHeight" : 30.694,
+         "dataSourceFloorCount" : "CALCULATED",
+         "dataSourceMeasuredHeight" : "laserscan"
+      },
+      {
+         "gmlId" : "GUID_1488958994062_20456021",
+         "roofType" : "FLAT_ROOF",
+         "floorCount" : "",
+         "levelOfDetail" : "2",
+         "measuredHeight" : 20.085,
+         "dataSourceFloorCount" : "CALCULATED",
+         "dataSourceMeasuredHeight" : "laserscan"
+      },
+      {
+         "gmlId" : "GUID_1488958994062_20456022",
+         "roofType" : "ARCHED_ROOF",
+         "floorCount" : "",
+         "levelOfDetail" : "2",
+         "measuredHeight" : 30.694,
+         "dataSourceFloorCount" : "CALCULATED",
+         "dataSourceMeasuredHeight" : "laserscan"
+      },
+      {
+         "gmlId" : "GUID_1488958994062_20456016",
+         "roofType" : "ARCHED_ROOF",
+         "floorCount" : "",
+         "levelOfDetail" : "2",
+         "measuredHeight" : 30.02,
+         "dataSourceFloorCount" : "CALCULATED",
+         "dataSourceMeasuredHeight" : "laserscan"
+      },
+      {
+         "gmlId" : "GUID_1488958994062_20456008",
+         "roofType" : "FLAT_ROOF",
+         "floorCount" : "",
+         "levelOfDetail" : "2",
+         "measuredHeight" : 20.085,
+         "dataSourceFloorCount" : "CALCULATED",
+         "dataSourceMeasuredHeight" : "laserscan"
+      },
+      {
+         "gmlId" : "GUID_1488958994062_20456037",
+         "roofType" : "FLAT_ROOF",
+         "floorCount" : "",
+         "levelOfDetail" : "2",
+         "measuredHeight" : 25.681,
+         "dataSourceFloorCount" : "CALCULATED",
+         "dataSourceMeasuredHeight" : "laserscan"
+      },
+      {
+         "gmlId" : "GUID_1488958994062_20456028",
+         "roofType" : "FLAT_ROOF",
+         "floorCount" : "",
+         "levelOfDetail" : "2",
+         "measuredHeight" : 19.86,
+         "dataSourceFloorCount" : "CALCULATED",
+         "dataSourceMeasuredHeight" : "laserscan"
+      },
+      {
+         "gmlId" : "GUID_1488958994062_20456036",
+         "roofType" : "FLAT_ROOF",
+         "floorCount" : "",
+         "levelOfDetail" : "2",
+         "measuredHeight" : 25.681,
+         "dataSourceFloorCount" : "CALCULATED",
+         "dataSourceMeasuredHeight" : "laserscan"
+      },
+      {
+         "gmlId" : "GUID_1488958994062_20456029",
+         "roofType" : "FLAT_ROOF",
+         "floorCount" : "",
+         "levelOfDetail" : "2",
+         "measuredHeight" : 16.337,
+         "dataSourceFloorCount" : "CALCULATED",
+         "dataSourceMeasuredHeight" : "laserscan"
+      },
+      {
+         "gmlId" : "GUID_1488958994062_20456018",
+         "roofType" : "FLAT_ROOF",
+         "floorCount" : "",
+         "levelOfDetail" : "2",
+         "measuredHeight" : 25.681,
+         "dataSourceFloorCount" : "CALCULATED",
+         "dataSourceMeasuredHeight" : "laserscan"
+      },
+      {
+         "gmlId" : "GUID_1488958994062_20456033",
+         "roofType" : "FLAT_ROOF",
+         "floorCount" : "",
+         "levelOfDetail" : "2",
+         "measuredHeight" : 11.893,
+         "dataSourceFloorCount" : "CALCULATED",
+         "dataSourceMeasuredHeight" : "laserscan"
+      },
+      {
+         "gmlId" : "GUID_1488958994062_20456034",
+         "roofType" : "FLAT_ROOF",
+         "floorCount" : "",
+         "levelOfDetail" : "2",
+         "measuredHeight" : 30.923000000000002,
+         "dataSourceFloorCount" : "CALCULATED",
+         "dataSourceMeasuredHeight" : "laserscan"
+      },
+      {
+         "gmlId" : "GUID_1488958994062_20456027",
+         "roofType" : "FLAT_ROOF",
+         "floorCount" : "",
+         "levelOfDetail" : "2",
+         "measuredHeight" : 22.56,
+         "dataSourceFloorCount" : "CALCULATED",
+         "dataSourceMeasuredHeight" : "laserscan"
+      },
+      {
+         "gmlId" : "GUID_1488958994062_20456031",
+         "roofType" : "FLAT_ROOF",
+         "floorCount" : "",
+         "levelOfDetail" : "2",
+         "measuredHeight" : 11.893,
+         "dataSourceFloorCount" : "CALCULATED",
+         "dataSourceMeasuredHeight" : "laserscan"
+      },
+      {
+         "gmlId" : "GUID_1488958994062_20456004",
+         "roofType" : "FLAT_ROOF",
+         "floorCount" : "",
+         "levelOfDetail" : "2",
+         "measuredHeight" : 20.085,
+         "dataSourceFloorCount" : "CALCULATED",
+         "dataSourceMeasuredHeight" : "laserscan"
+      },
+      {
+         "gmlId" : "GUID_1488958994062_20456017",
+         "roofType" : "FLAT_ROOF",
+         "floorCount" : "",
+         "levelOfDetail" : "2",
+         "measuredHeight" : 29.379,
+         "dataSourceFloorCount" : "CALCULATED",
+         "dataSourceMeasuredHeight" : "laserscan"
+      },
+      {
+         "gmlId" : "GUID_1488958994062_20456038",
+         "roofType" : "FLAT_ROOF",
+         "floorCount" : "",
+         "levelOfDetail" : "2",
+         "measuredHeight" : 25.681,
+         "dataSourceFloorCount" : "CALCULATED",
+         "dataSourceMeasuredHeight" : "laserscan"
+      },
+      {
+         "gmlId" : "GUID_1488958994062_20456014",
+         "roofType" : "FLAT_ROOF",
+         "floorCount" : "",
+         "levelOfDetail" : "2",
+         "measuredHeight" : 25.687,
+         "dataSourceFloorCount" : "CALCULATED",
+         "dataSourceMeasuredHeight" : "laserscan"
+      },
+      {
+         "gmlId" : "GUID_1488958994062_20456019",
+         "roofType" : "FLAT_ROOF",
+         "floorCount" : "",
+         "levelOfDetail" : "2",
+         "measuredHeight" : 25.681,
+         "dataSourceFloorCount" : "CALCULATED",
+         "dataSourceMeasuredHeight" : "laserscan"
+      },
+      {
+         "gmlId" : "GUID_1488958994062_20456013",
+         "roofType" : "FLAT_ROOF",
+         "floorCount" : "",
+         "levelOfDetail" : "2",
+         "measuredHeight" : 24.666,
+         "dataSourceFloorCount" : "CALCULATED",
+         "dataSourceMeasuredHeight" : "laserscan"
+      },
+      {
+         "gmlId" : "GUID_1488958994062_20456012",
+         "roofType" : "FLAT_ROOF",
+         "floorCount" : "",
+         "levelOfDetail" : "2",
+         "measuredHeight" : 24.655,
+         "dataSourceFloorCount" : "CALCULATED",
+         "dataSourceMeasuredHeight" : "laserscan"
+      },
+      {
+         "gmlId" : "GUID_1488958994062_20456023",
+         "roofType" : "FLAT_ROOF",
+         "floorCount" : "",
+         "levelOfDetail" : "2",
+         "measuredHeight" : 16.675,
+         "dataSourceFloorCount" : "CALCULATED",
+         "dataSourceMeasuredHeight" : "laserscan"
+      },
+      {
+         "gmlId" : "GUID_1488958994062_20456011",
+         "roofType" : "FLAT_ROOF",
+         "floorCount" : "",
+         "levelOfDetail" : "2",
+         "measuredHeight" : 21.766,
+         "dataSourceFloorCount" : "CALCULATED",
+         "dataSourceMeasuredHeight" : "laserscan"
+      }
+   ],
+   "buildingPartsCount" : 35,
+   "buildingRoofType" : "VARIOUS_ROOF_TYPES",
+   "buildingsOnParcelCount" : 0,
+   "buildingUse" : "Buildings for business or commerce",
+   "buildingVersion" : "2024.04.1",
+   "buildingVolume" : 85804.4,
+   "buildingVolumeAttic" : 15892.5,
+   "buildingVolumeCube" : 69911.9,
+   "businessCompaniesCount" : 1,
+   "carCount" : 381,
+   "coastalRiskZone" : 1,
+   "commercialDataRestricted" : [
+      {
+         "sector" : "Restaurants mit herkömmlicher Bedienung",
+         "employees" : "12",
+         "companyName" : "Sushimoto Japanisches Spezialitäten-Restaurant GmbH"
+      }
+   ],
+   "commercialData" : [
+      {
+         "id" : "56811577",
+         "lei" : "",
+         "vatId" : null,
+         "events" : [
+            {
+               "eventDate" : "2018-04-01",
+               "eventType" : "Trademark",
+               "eventDescription" : "Wort-/Bildmarke"
+            },
+            {
+               "eventDate" : "2004-11-18",
+               "eventType" : "CapitalChange",
+               "eventDescription" : "100.000 DEM"
+            },
+            {
+               "eventDate" : "1989-06-09",
+               "eventType" : "NewCompany",
+               "eventDescription" : "Eintragung"
+            },
+            {
+               "eventDate" : "1989-06-09",
+               "eventType" : "AddressChange",
+               "eventDescription" : "Anschrift: Konrad-Adenauer-Str. 7, D-60313 Frankfurt a. Main"
+            }
+         ],
+         "sector" : "Restaurants mit herkömmlicher Bedienung",
+         "contact" : [
+            {
+               "contactId" : "phone",
+               "contactName" : "Tel.",
+               "contactValue" : "+49 691310057"
+            },
+            {
+               "contactId" : "url",
+               "contactName" : "Website",
+               "contactValue" : "https://www.sushimoto.eu/de"
+            }
+         ],
+         "elfCode" : "2HBR",
+         "subject" : "Betreiben von Restaurant- und Hotelbetrieb, Catering und alle damit verbundenen Dienstleistungen.",
+         "legalForm" : "GmbH",
+         "financials" : [
+            {
+               "employees" : 12,
+               "tax [EUR]" : null,
+               "cash [EUR]" : 48076.43,
+               "equity [EUR]" : -124050.62,
+               "taxRatio [%]" : null,
+               "revenue [EUR]" : 1200000,
+               "earnings [EUR]" : 89306,
+               "salaries [EUR]" : null,
+               "equityRatio [%]" : -33.08196940339813,
+               "materials [EUR]" : null,
+               "publicationDate" : "2021-07-23",
+               "revenueCagr [%]" : 0,
+               "earningsCagr [%]" : null,
+               "publicationTitle" : "Jahresabschluss zum Geschäftsjahr vom 01.01.2020 bis zum 31.12.2020",
+               "realEstate [EUR]" : null,
+               "liabilities [EUR]" : null,
+               "receivables [EUR]" : null,
+               "returnOnSales [%]" : 7.442166666666666,
+               "balanceTotal [EUR]" : 374979.55,
+               "returnOnEquity [EUR]" : null,
+               "pensionsProvisions [EUR]" : null,
+               "revenuePerEmployee [EUR]" : 100000
+            }
+         ],
+         "registerId" : "HRB 30543",
+         "sectorCode" : "56.10.1",
+         "companyName" : "Sushimoto Japanisches Spezialitäten-Restaurant GmbH",
+         "proxyPolicy" : "Jeder Geschäftsführer vertritt einzeln.|Jeder Geschäftsführer ist befugt, im Namen der Gesellschaft mit sich im eigenen Namen oder als Vertreter eines Dritten Rechtsgeschäfte vorzunehmen.",
+         "registerCity" : "Frankfurt am Main",
+         "relatedPersons" : [
+            {
+               "personId" : "5023309557661696",
+               "personRole" : "Geschäftsführer",
+               "personAddress" : "Frankfurt a. Main, Deutschland",
+               "personLastName" : "Sakamoto",
+               "personBirthDate" : null,
+               "personFirstName" : "Mitsunori"
+            }
+         ],
+         "relatedCompanies" : [],
+         "registerUniqueKey" : "1260313030543"
+      }
+   ],
+   "dataSourceBuildingFloorsCount" : "counted",
+   "dataSourceMeasuredHeight" : "laserscan",
+   "distanceAntenna" : 1772,
+   "distanceAtm" : 94,
+   "distanceBank" : 180,
+   "distanceBusStation" : 132,
+   "distanceCarSharing" : 1009,
+   "distanceChimney" : 1055,
+   "distanceCommunicationsTower" : -999,
+   "distanceFireHydrant" : 521,
+   "distanceFireStation" : 2294,
+   "distanceFuelStation" : 1008,
+   "distanceHospital" : 269,
+   "distanceKindergarten" : 265,
+   "distanceMotorwayLink" : 2873,
+   "distanceParking" : 53,
+   "distancePolice" : 253,
+   "distancePrimarySchool" : 1872,
+   "distanceSchool" : 176,
+   "distanceSecondarySchool" : 924,
+   "distanceSwimmingFacility" : -999,
+   "distanceTrainStation" : 123,
+   "distanceUniversity" : 900,
+   "distanceWaterway" : 810,
+   "earthquakeRiskZone" : 0,
+   "firstAppearanceYear" : 2022,
+   "floodRiskZone" : 1,
+   "geometryError" : "Invalid Solid Boundaries",
+   "geometryErrorSolid" : "Non-Planar Surfaces",
+   "groundMotionRiskZone" : -0.50055844,
+   "heavyPrecipitationRiskZone" : 2,
+   "heightEaves" : 11.89,
+   "heightRidge" : 19.03,
+   "homeOwnersCount" : 98,
+   "homeOwnersPercentage" : 17.98,
+   "householdsMigrationBackgroundCount" : 365,
+   "householdsMigrationBackgroundPercentage" : 66.97,
+   "householdsOneChildCount" : 47,
+   "householdsThreePlusChildrenCount" : 15,
+   "householdsTwoChildrenCount" : 48,
+   "householdsWithChildren0005Count" : 44,
+   "householdsWithChildren0614Count" : 29,
+   "householdsWithChildren1517Count" : 7,
+   "householdsWithChildren18Count" : 30,
+   "householdsWithChildrenCount" : 110,
+   "householdsWithoutChildrenCount" : 435,
+   "insuredSumMax" : null,
+   "insuredSumMin" : null,
+   "landuse" : "residential",
+   "measuredHeight" : 30.923000000000002,
+   "motorVehiclesCount" : 513,
+   "municipalityId" : "06412000",
+   "parcelIds" : [ "060460046000570001__", "060460059000400030__", "060460058000220009__", "060460058000220008__", "060460058000150008__", "060460046001510057__", "060460058000430004__", "060460059000020008__", "060460059000020009__", "060460059000290007__", "060460059000290006__" ],
+   "parkingSpaceOnParcel" : false,
+   "parkingSpaceOnParcelCount" : 0,
+   "purchasingPowerIndex" : 112.86359,
+   "purchasingPowerM" : 24.97057,
+   "purchasingPowerPerResident" : 29205.344,
+   "residentialBuildingsOnParcel" : false,
+   "residentialBuildingsOnParcelCount" : 0,
+   "residentialDistrict" : "Innenstadt 009",
+   "residentialDistrictID" : "06412000100009",
+   "residentialDistrictType" : "G01",
+   "residentialDistrictTypeAggregated" : "S1",
+   "residentialDistrictTypeStatus" : "B7",
+   "residentsCount" : 855,
+   "residentsF0002Count" : 15,
+   "residentsF0305Count" : 11,
+   "residentsF0609Count" : 10,
+   "residentsF1014Count" : 18,
+   "residentsF1517Count" : 7,
+   "residentsF1819Count" : 6,
+   "residentsF2024Count" : 25,
+   "residentsF2529Count" : 29,
+   "residentsF3034Count" : 31,
+   "residentsF3539Count" : 30,
+   "residentsF4044Count" : 36,
+   "residentsF4549Count" : 37,
+   "residentsF5054Count" : 33,
+   "residentsF5559Count" : 39,
+   "residentsF6064Count" : 31,
+   "residentsF6574Count" : 36,
+   "residentsF75Count" : 34,
+   "residentsFCount" : 428,
+   "residentsM0002Count" : 17,
+   "residentsM0305Count" : 14,
+   "residentsM0609Count" : 14,
+   "residentsM1014Count" : 17,
+   "residentsM1517Count" : 8,
+   "residentsM1819Count" : 8,
+   "residentsM2024Count" : 19,
+   "residentsM2529Count" : 31,
+   "residentsM3034Count" : 35,
+   "residentsM3539Count" : 33,
+   "residentsM4044Count" : 33,
+   "residentsM4549Count" : 29,
+   "residentsM5054Count" : 32,
+   "residentsM5559Count" : 40,
+   "residentsM6064Count" : 29,
+   "residentsM6574Count" : 36,
+   "residentsM75Count" : 32,
+   "residentsMCount" : 427,
+   "returnPeriodFluvial" : -999,
+   "returnPeriodSeaWater" : -999,
+   "roofArea" : 3921.57,
+   "roofParts" : [
+      {
+         "area" : 1005.05,
+         "slope" : 0,
+         "orientation" : "undefined"
+      },
+      {
+         "area" : 533.32,
+         "slope" : 0,
+         "orientation" : "undefined"
+      },
+      {
+         "area" : 299.29,
+         "slope" : 0,
+         "orientation" : "undefined"
+      },
+      {
+         "area" : 276.64,
+         "slope" : 0,
+         "orientation" : "undefined"
+      },
+      {
+         "area" : 170.96,
+         "slope" : 0,
+         "orientation" : "undefined"
+      },
+      {
+         "area" : 130.73,
+         "slope" : 0,
+         "orientation" : "undefined"
+      },
+      {
+         "area" : 92.53,
+         "slope" : 0,
+         "orientation" : "undefined"
+      },
+      {
+         "area" : 68.33,
+         "slope" : 15.07,
+         "orientation" : "NNW"
+      },
+      {
+         "area" : 70.26,
+         "slope" : 35.1,
+         "orientation" : "NNW"
+      },
+      {
+         "area" : 65.32,
+         "slope" : 15.07,
+         "orientation" : "SSE"
+      },
+      {
+         "area" : 67.31,
+         "slope" : 5.01,
+         "orientation" : "NNW"
+      },
+      {
+         "area" : 66.29,
+         "slope" : 5.01,
+         "orientation" : "SSE"
+      },
+      {
+         "area" : 64.41,
+         "slope" : 25.09,
+         "orientation" : "SSE"
+      },
+      {
+         "area" : 69.33,
+         "slope" : 25.09,
+         "orientation" : "NNW"
+      },
+      {
+         "area" : 63.58,
+         "slope" : 35.09,
+         "orientation" : "SSE"
+      },
+      {
+         "area" : 51.4,
+         "slope" : 0,
+         "orientation" : "undefined"
+      },
+      {
+         "area" : 50.88,
+         "slope" : 0,
+         "orientation" : "undefined"
+      },
+      {
+         "area" : 50.14,
+         "slope" : 0,
+         "orientation" : "undefined"
+      },
+      {
+         "area" : 46.6,
+         "slope" : 0,
+         "orientation" : "undefined"
+      },
+      {
+         "area" : 41.96,
+         "slope" : 0,
+         "orientation" : "undefined"
+      },
+      {
+         "area" : 37.08,
+         "slope" : 0,
+         "orientation" : "undefined"
+      },
+      {
+         "area" : 34.05,
+         "slope" : 0,
+         "orientation" : "undefined"
+      },
+      {
+         "area" : 30.45,
+         "slope" : 0,
+         "orientation" : "undefined"
+      },
+      {
+         "area" : 25.64,
+         "slope" : 5.01,
+         "orientation" : "NNW"
+      },
+      {
+         "area" : 24.95,
+         "slope" : 25.07,
+         "orientation" : "NNW"
+      },
+      {
+         "area" : 26.38,
+         "slope" : 15.06,
+         "orientation" : "SSE"
+      },
+      {
+         "area" : 26.02,
+         "slope" : 5.01,
+         "orientation" : "SSE"
+      },
+      {
+         "area" : 25.29,
+         "slope" : 15.05,
+         "orientation" : "NNW"
+      },
+      {
+         "area" : 24.62,
+         "slope" : 35.08,
+         "orientation" : "NNW"
+      },
+      {
+         "area" : 26.87,
+         "slope" : 35.11,
+         "orientation" : "SSE"
+      },
+      {
+         "area" : 26.74,
+         "slope" : 25.08,
+         "orientation" : "SSE"
+      },
+      {
+         "area" : 23.41,
+         "slope" : 0,
+         "orientation" : "undefined"
+      },
+      {
+         "area" : 19.49,
+         "slope" : 0,
+         "orientation" : "undefined"
+      },
+      {
+         "area" : 17.36,
+         "slope" : 0,
+         "orientation" : "undefined"
+      },
+      {
+         "area" : 16.39,
+         "slope" : 0,
+         "orientation" : "undefined"
+      },
+      {
+         "area" : 14.56,
+         "slope" : 0,
+         "orientation" : "undefined"
+      },
+      {
+         "area" : 14.01,
+         "slope" : 0,
+         "orientation" : "undefined"
+      },
+      {
+         "area" : 13.87,
+         "slope" : 0,
+         "orientation" : "undefined"
+      },
+      {
+         "area" : 11.7,
+         "slope" : 0,
+         "orientation" : "undefined"
+      },
+      {
+         "area" : 9.55,
+         "slope" : 4.4,
+         "orientation" : "SSE"
+      },
+      {
+         "area" : 9.53,
+         "slope" : 4.41,
+         "orientation" : "NNW"
+      },
+      {
+         "area" : 9.61,
+         "slope" : 30.79,
+         "orientation" : "SSE"
+      },
+      {
+         "area" : 9.51,
+         "slope" : 13.2,
+         "orientation" : "NNW"
+      },
+      {
+         "area" : 9.59,
+         "slope" : 21.98,
+         "orientation" : "SSE"
+      },
+      {
+         "area" : 9.48,
+         "slope" : 30.77,
+         "orientation" : "NNW"
+      },
+      {
+         "area" : 9.5,
+         "slope" : 22,
+         "orientation" : "NNW"
+      },
+      {
+         "area" : 9.57,
+         "slope" : 13.21,
+         "orientation" : "SSE"
+      },
+      {
+         "area" : 7.93,
+         "slope" : 0,
+         "orientation" : "undefined"
+      },
+      {
+         "area" : 7.76,
+         "slope" : 0,
+         "orientation" : "undefined"
+      },
+      {
+         "area" : 5.37,
+         "slope" : 15.09,
+         "orientation" : "NNW"
+      },
+      {
+         "area" : 6.18,
+         "slope" : 15.06,
+         "orientation" : "SSE"
+      },
+      {
+         "area" : 5.91,
+         "slope" : 5.03,
+         "orientation" : "SSE"
+      },
+      {
+         "area" : 5.63,
+         "slope" : 5.02,
+         "orientation" : "NNW"
+      },
+      {
+         "area" : 4.88,
+         "slope" : 35.15,
+         "orientation" : "NNW"
+      },
+      {
+         "area" : 6.44,
+         "slope" : 25.09,
+         "orientation" : "SSE"
+      },
+      {
+         "area" : 5.11,
+         "slope" : 25.11,
+         "orientation" : "NNW"
+      },
+      {
+         "area" : 6.69,
+         "slope" : 35.06,
+         "orientation" : "SSE"
+      },
+      {
+         "area" : 6.13,
+         "slope" : 0,
+         "orientation" : "undefined"
+      },
+      {
+         "area" : 6.05,
+         "slope" : 0,
+         "orientation" : "undefined"
+      },
+      {
+         "area" : 5.95,
+         "slope" : 0,
+         "orientation" : "undefined"
+      },
+      {
+         "area" : 5.28,
+         "slope" : 0,
+         "orientation" : "undefined"
+      },
+      {
+         "area" : 4.53,
+         "slope" : 16.65,
+         "orientation" : "SSE"
+      },
+      {
+         "area" : 4.77,
+         "slope" : 27.74,
+         "orientation" : "SSE"
+      },
+      {
+         "area" : 3.2800000000000002,
+         "slope" : 38.77,
+         "orientation" : "NNW"
+      },
+      {
+         "area" : 4.27,
+         "slope" : 5.54,
+         "orientation" : "SSE"
+      },
+      {
+         "area" : 4,
+         "slope" : 5.54,
+         "orientation" : "NNW"
+      },
+      {
+         "area" : 5,
+         "slope" : 38.81,
+         "orientation" : "SSE"
+      },
+      {
+         "area" : 3.74,
+         "slope" : 16.64,
+         "orientation" : "NNW"
+      },
+      {
+         "area" : 3.5,
+         "slope" : 27.74,
+         "orientation" : "NNW"
+      },
+      {
+         "area" : 3.62,
+         "slope" : 0,
+         "orientation" : "undefined"
+      }
+   ],
+   "roofSlopeMax" : 38.81,
+   "roofSlopeMin" : 0,
+   "snowRiskZone" : "1",
+   "stormRiskZone" : 3,
+   "tenantsCount" : 447,
+   "tenantsPercentage" : 82.02,
+   "unemployedCount" : 28,
+   "unemployedPercentage" : 5.063291
+}
