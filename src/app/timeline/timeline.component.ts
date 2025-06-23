@@ -10,96 +10,108 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./timeline.component.css'],
 })
 export class TimelineComponent {
+  Math = Math; // Make Math available in template
+  
   measures = [
     {
       name: 'Heizung',
       budget: 41000,
+      kosten: 20500,
       timeline: '10/2025',
       quarter: 'Q1/2024',
       selectedMeasures: [] as string[],
       confirmedOptions: {} as { [key: string]: string[] },
-      level: 76 // Progress in percentage
+      level: 76
     },
     {
       name: 'Solarthermie',
       budget: 63500,
+      kosten: 127000,
       timeline: '20/2025',
       quarter: 'Q2/2024',
       selectedMeasures: [] as string[],
       confirmedOptions: {} as { [key: string]: string[] },
-      level: 58 // Progress in percentage
+      level: 58
     },
     {
       name: 'Photovoltaik',
       budget: 47850,
+      kosten: 35000,
       timeline: '20/2025',
       quarter: 'Q3/2024',
       selectedMeasures: [] as string[],
       confirmedOptions: {} as { [key: string]: string[] },
-      level: 20 // Progress in percentage
+      level: 20
     },
     {
       name: 'Kellerdecke',
       budget: 2000,
+      kosten: 1800,
       timeline: '',
       quarter: '',
       selectedMeasures: [] as string[],
       confirmedOptions: {} as { [key: string]: string[] },
-      level: 100 // Progress in percentage
+      level: 100
     },
     {
       name: 'Dachgeschossdecke',
       budget: 3000,
+      kosten: 3200,
       timeline: '',
       quarter: '',
       selectedMeasures: [] as string[],
       confirmedOptions: {} as { [key: string]: string[] },
-      level: 60 // Progress in percentage
+      level: 60
     },
     {
       name: 'Dach dämmen', 
       budget: 3000,
+      kosten: 2800,
       timeline: '',
       quarter: '',
       selectedMeasures: [] as string[],
       confirmedOptions: {} as { [key: string]: string[] },
-      level: 90 // Progress in percentage
+      level: 90
     },
     {
       name: 'Fassade dämmen', 
       budget: 3000,
+      kosten: 3500,
       timeline: '',
       quarter: '',
       selectedMeasures: [] as string[],
       confirmedOptions: {} as { [key: string]: string[] },
-      level: 60 // Progress in percentage
+      level: 60
     },
     {
       name: 'Dachfenster', 
       budget: 3000,
+      kosten: 2750,
       timeline: '',
       quarter: '',
       selectedMeasures: [] as string[],
       confirmedOptions: {} as { [key: string]: string[] },
-      level: 80 // Progress in percentage
+      level: 80
     },
     {
       name: 'Fenster & Türen', 
       budget: 3000,
+      kosten: 3100,
       timeline: '',
       quarter: '',
       selectedMeasures: [] as string[],
       confirmedOptions: {} as { [key: string]: string[] },
-      level: 60 // Progress in percentage
+      level: 60
     },
     {
       name: 'Lüftungsanlage', 
       budget: 3000,
+      kosten: 2900,
       timeline: '',
       quarter: '',
       selectedMeasures: [] as string[],
       confirmedOptions: {} as { [key: string]: string[] },
-      level: 39 // Progress in percentage
+      level: 39
     },
   ];
 
@@ -115,9 +127,6 @@ export class TimelineComponent {
 
   quarterOptions: string[] = [];
   dropdownState: { [key: number]: { measures?: boolean; quartals?: boolean } } = {};
-  showModal: boolean = false;
-  modalMessage: string = '';
-  selectedMeasureIndex: number | null = null;
 
   constructor() {
     this.quarterOptions = this.generateQuarterOptions();
@@ -150,14 +159,67 @@ export class TimelineComponent {
   }
 
   toggleCheckbox(option: string, selectedList: string[], measureIndex: number) {
-    const idx = selectedList.indexOf(option);
-    if (idx === -1) {
-      selectedList.push(option);
+    const measure = this.measures[measureIndex];
+    const currentQuarter = measure.quarter;
+    
+    // Check if this option is already confirmed for the current quarter
+    const isConfirmedForCurrentQuarter = measure.confirmedOptions[currentQuarter]?.includes(option) || false;
+    
+    if (isConfirmedForCurrentQuarter) {
+      // If it's confirmed, remove it from confirmed options
+      this.removeConfirmedMeasure(measureIndex, currentQuarter, option);
+      // Also remove from selected list if present
+      const idx = selectedList.indexOf(option);
+      if (idx !== -1) {
+        selectedList.splice(idx, 1);
+      }
     } else {
-      selectedList.splice(idx, 1);
+      // Normal toggle behavior for unconfirmed measures
+      const idx = selectedList.indexOf(option);
+      if (idx === -1) {
+        selectedList.push(option);
+      } else {
+        selectedList.splice(idx, 1);
+      }
     }
 
     this.measures[measureIndex].level = this.calculateLevel(selectedList);
+  }
+
+  // Method to check if a measure is confirmed for the current quarter
+  isMeasureConfirmedForCurrentQuarter(measureIndex: number, option: string): boolean {
+    const measure = this.measures[measureIndex];
+    const currentQuarter = measure.quarter;
+    return measure.confirmedOptions[currentQuarter]?.includes(option) || false;
+  }
+
+  // Method to check if a measure should be checked in the dropdown
+  isMeasureChecked(measureIndex: number, option: string): boolean {
+    const measure = this.measures[measureIndex];
+    const isSelected = measure.selectedMeasures.includes(option);
+    const isConfirmed = this.isMeasureConfirmedForCurrentQuarter(measureIndex, option);
+    return isSelected || isConfirmed;
+  }
+
+  // Method to get display text for measures dropdown button
+  getMeasuresDisplayText(measureIndex: number): string {
+    const measure = this.measures[measureIndex];
+    const currentQuarter = measure.quarter;
+    
+    // Get confirmed measures for current quarter
+    const confirmedForCurrentQuarter = measure.confirmedOptions[currentQuarter] || [];
+    
+    // Combine confirmed and newly selected measures
+    const allCurrentMeasures = [...confirmedForCurrentQuarter, ...measure.selectedMeasures];
+    
+    // Remove duplicates
+    const uniqueMeasures = [...new Set(allCurrentMeasures)];
+    
+    if (uniqueMeasures.length > 0) {
+      return uniqueMeasures.join(', ');
+    }
+    
+    return this.measureOptions[0];
   }
 
   selectQuarter(index: number, quarter: string) {
@@ -169,49 +231,39 @@ export class TimelineComponent {
     if (!measure.confirmedOptions[quarter]) {
       measure.confirmedOptions[quarter] = [];
     }
-    measure.confirmedOptions[quarter] = [...measure.selectedMeasures];
+    
+    // Instead of replacing, we merge the new selections with existing ones
+    const existingMeasures: string[] = measure.confirmedOptions[quarter] || [];
+    const newMeasures: string[] = measure.selectedMeasures.filter((m: string) => !existingMeasures.includes(m));
+    
+    // Combine existing and new measures (avoid duplicates)
+    measure.confirmedOptions[quarter] = [...existingMeasures, ...newMeasures];
   }
 
-  
   handleConfirm(measureIndex: number) {
     const measure = this.measures[measureIndex];
-    const selectedMeasure = measure.selectedMeasures[measure.selectedMeasures.length - 1];
-    const selectedMeasureIndex = this.measureOptions.indexOf(selectedMeasure);
-  
-    if (selectedMeasureIndex === 0) {
-      this.confirmSelection(measure, measure.quarter);
-      this.resetSelection(measureIndex);
+    
+    // Check if there are any selected measures
+    if (!measure.selectedMeasures.length) {
+      alert('Please select at least one measure before confirming.');
       return;
     }
-  
-    const previousOptions = this.measureOptions.slice(0, selectedMeasureIndex).join(', ');
-    this.modalMessage = `You selected "${selectedMeasure}". Are you sure you don't need these: ${previousOptions}?`;
-    this.showModal = true;
-    this.selectedMeasureIndex = measureIndex;
-  }
-  
-  closeModal(confirm: boolean) {
-    if (confirm && this.selectedMeasureIndex !== null) {
-      const measure = this.measures[this.selectedMeasureIndex];
-      measure.confirmedOptions[measure.quarter] = [...measure.selectedMeasures];
-  
-      this.resetSelection(this.selectedMeasureIndex);
-    }
-  
-    this.showModal = false;
-    this.modalMessage = '';
-    this.selectedMeasureIndex = null;
+
+    // Directly confirm the selection without modal
+    this.confirmSelection(measure, measure.quarter);
+    this.resetSelection(measureIndex);
   }
   
   resetSelection(index: number) {
+    // Close dropdowns
     if (this.dropdownState[index]) {
       this.dropdownState[index].measures = false;
       this.dropdownState[index].quartals = false;
     }
   
+    // Only clear the selected measures for new selection, but keep confirmed ones
     this.measures[index].selectedMeasures = [];  
   }
-  
   
   resetDropdown(index: number) {
     if (this.dropdownState[index]) {
@@ -219,6 +271,28 @@ export class TimelineComponent {
       this.dropdownState[index].quartals = false;
     }
   }
+
+  // Method to remove a specific confirmed measure from a quarter
+  removeConfirmedMeasure(measureIndex: number, quarter: string, measureToRemove: string) {
+    const measure = this.measures[measureIndex];
+    if (measure.confirmedOptions[quarter]) {
+      measure.confirmedOptions[quarter] = measure.confirmedOptions[quarter].filter(m => m !== measureToRemove);
+      
+      // If no measures left for this quarter, remove the quarter key
+      if (measure.confirmedOptions[quarter].length === 0) {
+        delete measure.confirmedOptions[quarter];
+      }
+    }
+  }
+
+  // Method to clear all confirmed measures for a specific quarter
+  clearQuarterMeasures(measureIndex: number, quarter: string) {
+    const measure = this.measures[measureIndex];
+    if (measure.confirmedOptions[quarter]) {
+      delete measure.confirmedOptions[quarter];
+    }
+  }
+
   calculateLevel(selectedMeasures: string[]): number {
     if (!selectedMeasures.length) return 0;
 
@@ -229,6 +303,23 @@ export class TimelineComponent {
     return Math.round(((highestIndex + 1) / this.measureOptions.length) * 100);
   }
 
+  calculateCostPercentage(budget: number, kosten: number): number {
+    if (budget === 0) return 0;
+    return Math.round(((kosten - budget) / budget) * 100);
+  }
+
+  // Get the sign for percentage display (inverted logic)
+  getPercentageSign(percentage: number): string {
+    return percentage < 0 ? '+' : percentage > 0 ? '-' : ''; // Under budget shows +, over budget shows -
+  }
+
+  // Get CSS class for percentage styling
+  getPercentageClass(percentage: number): string {
+    if (percentage > 0) return 'text-danger'; // Over budget - red with - sign
+    if (percentage < 0) return 'text-success'; // Under budget - green with + sign  
+    return 'text-dark'; // Exactly on budget - dark with no sign
+  }
+
   objectKeys(obj: any): string[] {
     return Object.keys(obj);
   }
@@ -237,11 +328,18 @@ export class TimelineComponent {
     return this.measures.reduce((sum, measure) => sum + measure.budget, 0);
   }
 
+  get totalKosten() {
+    return this.measures.reduce((sum, measure) => sum + measure.kosten, 0);
+  }
+
+  get totalPercentage() {
+    return this.calculateCostPercentage(this.totalBudget, this.totalKosten);
+  }
+
   printTable() {
     const printWindow = window.open('', '_blank');
   
     if (printWindow) {
-      // Prepare the printable HTML
       const printableContent = `
         <html>
         <head>
@@ -279,6 +377,9 @@ export class TimelineComponent {
             .progress-bar-inner {
               height: 100%;
             }
+            .text-success { color: #28a745; }
+            .text-danger { color: #dc3545; }
+            .text-dark { color: #212529; }
           </style>
         </head>
         <body>
@@ -288,6 +389,8 @@ export class TimelineComponent {
               <tr>
                 <th>ESG-Maßnahmen</th>
                 <th>Budget</th>
+                <th>Kosten</th>
+                <th>Percentage</th>
                 <th>Timeline</th>
                 <th>Level</th>
               </tr>
@@ -296,6 +399,7 @@ export class TimelineComponent {
               ${this.measures
                 .map((measure) => {
                   const timeline = this.formatTimeline(measure.confirmedOptions);
+                  const percentage = this.calculateCostPercentage(measure.budget, measure.kosten);
                   return `
                     <tr>
                       <td>${measure.name}</td>
@@ -303,6 +407,13 @@ export class TimelineComponent {
                         style: 'currency',
                         currency: 'EUR',
                       })}</td>
+                      <td>${measure.kosten.toLocaleString('de-DE', {
+                        style: 'currency',
+                        currency: 'EUR',
+                      })}</td>
+                      <td class="${percentage > 0 ? 'text-danger' : percentage < 0 ? 'text-success' : 'text-dark'}">
+                        ${percentage > 0 ? '+' : ''}${percentage}%
+                      </td>
                       <td>${timeline || 'N/A'}</td>
                       <td>
                         <div class="progress-wrapper">
@@ -321,19 +432,29 @@ export class TimelineComponent {
             </tbody>
             <tfoot>
               <tr>
-                <td colspan="4" style="text-align: right; font-weight: bold;">
+                <td colspan="2" style="text-align: right; font-weight: bold;">
                   Total Budget: ${this.totalBudget.toLocaleString('de-DE', {
                     style: 'currency',
                     currency: 'EUR',
                   })}
                 </td>
+                <td style="font-weight: bold;">
+                  ${this.totalKosten.toLocaleString('de-DE', {
+                    style: 'currency',
+                    currency: 'EUR',
+                  })}
+                </td>
+                <td class="${this.totalPercentage > 0 ? 'text-danger' : this.totalPercentage < 0 ? 'text-success' : 'text-dark'}" style="font-weight: bold;">
+                  ${this.totalPercentage > 0 ? '+' : ''}${this.totalPercentage}%
+                </td>
+                <td colspan="2"></td>
               </tr>
             </tfoot>
           </table>
           <script>
             window.onload = function() {
               window.print();
-              setTimeout(() => window.close(), 500); // Close the print window after a short delay
+              setTimeout(() => window.close(), 500);
             };
           </script>
         </body>
@@ -359,5 +480,4 @@ export class TimelineComponent {
       })
       .join('<br>');
   }
-  
 }

@@ -1,6 +1,6 @@
 <div class="container-fluid my-4">
   <div class="d-flex justify-content-between align-items-center mb-3">
-    <h3 class="mb-0">Übersicht Maßnahmen - Timeline</h3>
+    <h3 class="mb-0">Übersicht CapEx Maßnahmen - Timeline</h3>
     <button class="btn btn-sm btn-outline-secondary" (click)="printTable()">
       <i class="fa fa-print me-1"></i> Print
     </button>
@@ -15,6 +15,8 @@
           <th>Quartals</th>
           <th>Confirm</th>
           <th>Budget</th>
+          <th>Kosten</th>
+          <th>Percentage</th>
           <th>Timeline</th>
           <th>Level</th>
         </tr>
@@ -29,7 +31,7 @@
                 (click)="toggleDropdown(i, 'measures')"
               >
                 <span>
-                  {{ measure.selectedMeasures.length ? measure.selectedMeasures.join(', ') : measureOptions[0] }}
+                  {{ getMeasuresDisplayText(i) }}
                 </span>
                 <i class="fa fa-caret-down ms-1"></i>
               </button>
@@ -41,10 +43,13 @@
                 <label class="d-block mb-1" *ngFor="let option of measureOptions">
                   <input
                     type="checkbox"
-                    [checked]="measure.selectedMeasures.includes(option)"
+                    [checked]="isMeasureChecked(i, option)"
                     (change)="toggleCheckbox(option, measure.selectedMeasures, i)"
                   />
-                  {{ option }}
+                  <span [ngClass]="{'text-success font-weight-bold': isMeasureConfirmedForCurrentQuarter(i, option)}">
+                    {{ option }}
+                  </span>
+                  <small *ngIf="isMeasureConfirmedForCurrentQuarter(i, option)" class="text-success ms-1">✓</small>
                 </label>
               </div>
             </div>
@@ -78,6 +83,12 @@
             </button>
           </td>
           <td>{{ measure.budget | currency: 'EUR' }}</td>
+          <td>{{ measure.kosten | currency: 'EUR' }}</td>
+          <td>
+            <span [ngClass]="getPercentageClass(calculateCostPercentage(measure.budget, measure.kosten))">
+              {{ getPercentageSign(calculateCostPercentage(measure.budget, measure.kosten)) }}{{ Math.abs(calculateCostPercentage(measure.budget, measure.kosten)) }}%
+            </span>
+          </td>
           <td>
             <div *ngIf="objectKeys(measure.confirmedOptions).length > 0; else noConfirmed">
               <div *ngFor="let q of objectKeys(measure.confirmedOptions)">
@@ -115,29 +126,21 @@
       </tbody>
       <tfoot>
         <tr>
-          <td colspan="7" class="text-right font-weight-bold">
-            Total: {{ totalBudget | currency: 'EUR' }}
+          <td colspan="4" class="text-right font-weight-bold">
+            Total:
           </td>
+          <td class="font-weight-bold">
+            {{ totalBudget | currency: 'EUR' }}
+          </td>
+          <td class="font-weight-bold">
+            {{ totalKosten | currency: 'EUR' }}
+          </td>
+          <td [ngClass]="getPercentageClass(totalPercentage)" class="font-weight-bold">
+            {{ getPercentageSign(totalPercentage) }}{{ Math.abs(totalPercentage) }}%
+          </td>
+          <td colspan="2"></td>
         </tr>
       </tfoot>
     </table>
-  </div>
-
-  <!-- Modal -->
-<div class="modal" [ngClass]="{ 'd-block': showModal }" tabindex="-1" style="background: rgba(0, 0, 0, 0.5);">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Confirmation</h5>
-        <button type="button" class="btn-close" (click)="closeModal(false)"></button>
-      </div>
-      <div class="modal-body">
-        <p>{{ modalMessage }}</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" (click)="closeModal(false)">Cancel</button>
-        <button type="button" class="btn btn-success" (click)="closeModal(true)">Confirm</button>
-      </div>
-    </div>
   </div>
 </div>
