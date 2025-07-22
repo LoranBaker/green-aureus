@@ -1,0 +1,797 @@
+<div class="container mt-5">
+    <h4 class="mb-3">Ihre Daten</h4>
+    <form (ngSubmit)="submitForm()">
+      <!-- Personal Data Section -->
+      <div class="d-flex align-items-center flex-wrap gap-3 mb-4">
+        <!-- Vorname -->
+        <div class="d-flex align-items-center">
+          <label for="vorname" class="form-label me-2 mb-0">Vorname:</label>
+          <input
+            type="text"
+            id="vorname"
+            [(ngModel)]="formData.vorname"
+            name="vorname"
+            class="form-control border-custom"
+            placeholder="Vornamen"
+            required
+          />
+        </div>
+  
+        <!-- Nachname -->
+        <div class="d-flex align-items-center">
+          <label for="nachname" class="form-label me-2 mb-0">Nachname:</label>
+          <input
+            type="text"
+            id="nachname"
+            [(ngModel)]="formData.nachname"
+            name="nachname"
+            class="form-control border-custom"
+            placeholder="Nachnamen"
+            required
+          />
+        </div>
+  
+        <!-- Email -->
+        <div class="d-flex align-items-center">
+          <label for="email" class="form-label me-2 mb-0">Email:</label>
+          <input
+            type="email"
+            id="email"
+            [(ngModel)]="formData.email"
+            name="email"
+            class="form-control border-custom"
+            placeholder="Email"
+            required
+          />
+        </div>
+  
+        <!-- Telefon -->
+        <div class="d-flex align-items-center">
+          <label for="telefon" class="form-label me-2 mb-0">Telefon:</label>
+          <input
+            type="tel"
+            id="telefon"
+            [(ngModel)]="formData.telefon"
+            name="telefon"
+            class="form-control border-custom"
+            placeholder="Telefon"
+            required
+          />
+        </div>
+      </div>
+  
+      <!-- Gebäudedaten Section -->
+      <h4 class="mb-3">Gebäudedaten</h4>
+      <div class="d-flex align-items-center flex-wrap gap-3 mb-4">
+        <!-- Straße + Hausnummer -->
+        <div class="d-flex align-items-center">
+          <label for="strasse" class="form-label me-2 mb-0">Straße + Hausnummer:</label>
+          <input
+            type="text"
+            id="strasse"
+            [(ngModel)]="formData.strasse"
+            name="strasse"
+            class="form-control border-custom"
+            placeholder="Straße und Hausnummer"
+            required
+          />
+        </div>
+  
+        <!-- Postleitzahl -->
+        <div class="d-flex align-items-center">
+          <label for="postleitzahl" class="form-label me-2 mb-0">Postleitzahl:</label>
+          <input
+            type="text"
+            id="postleitzahl"
+            [(ngModel)]="formData.postleitzahl"
+            name="postleitzahl"
+            class="form-control border-custom"
+            placeholder="PLZ"
+            required
+          />
+        </div>
+  
+        <!-- Ort -->
+        <div class="d-flex align-items-center">
+          <label for="ort" class="form-label me-2 mb-0">Ort:</label>
+          <input
+            type="text"
+            id="ort"
+            [(ngModel)]="formData.ort"
+            name="ort"
+            class="form-control border-custom"
+            placeholder="Ort"
+            required
+          />
+        </div>
+         <!-- Ort -->
+         <div class="d-flex align-items-center">
+            <label for="gebaeudefoto" class="form-label">Gebäudefoto hochladen (Datei auswählen): </label>
+            <input
+              type="file"
+              id="gebaeudefoto"
+              [(ngModel)]="formData.gebaeudefoto"
+              name="gebaeudefoto"
+              class="form-control border-custom"
+              accept="image/*"
+            />
+          </div>
+             <!-- Ort -->
+        <div class="d-flex align-items-center">
+            <label for="ort" class="form-label me-2 mb-0">Ort:</label>
+            <input
+              type="text"
+              id="ort"
+              [(ngModel)]="formData.ort"
+              name="ort"
+              class="form-control border-custom"
+              placeholder="Ort"
+              required
+            />
+          </div>
+          <div class="d-flex align-items-center">
+            <label for="gebaeudeteil" class="form-label me-2 mb-0">Gebäudeteil:</label>
+            <select
+              id="gebaeudeteil"
+              [(ngModel)]="formData.gebaeudeteil"
+              name="gebaeudeteil"
+              class="form-control border-custom"
+              placeholder="Select option"
+              required
+            >
+              <option value="gesamtes_gebaeude">Gesamtes Gebäude</option>
+              <option value="wohnteil">Wohnteil (bei Wohn- und Geschäftshaus)</option>
+            </select>
+          </div>
+          <div class="d-flex align-items-center">
+            <label for="gebaeudetyp" class="form-label me-2 mb-0">Gebäudetyp:</label>
+            <select
+              id="gebaeudetyp"
+              [(ngModel)]="formData.gebaeudetyp"
+              name="gebaeudetyp"
+              class="form-control border-custom"
+              required
+            >
+              <option value="" disabled selected>Bitte auswählen</option>
+              <option value="einfamilienhaus">Einfamilienhaus</option>
+              <option value="mehrfamilienhaus">Mehrfamilienhaus</option>
+              <option value="gewerbe">Gewerbe</option>
+              <option value="mischnutzung">Mischnutzung</option>
+              <option value="reiheneckhaus">Reiheneckhaus</option>
+              <option value="reihenmittelhaus">Reihenmittelhaus</option>
+              <option value="doppelhaushaelfte">Doppelhaushälfte</option>
+            </select>
+          </div>
+          <div class="d-flex align-items-center">
+            <!-- Anzahl Wohnungen -->
+            <div class="d-flex align-items-center">
+              <label for="wohnungen" class="form-label me-2 mb-0">Anzahl Wohnungen:</label>
+              <input
+                type="number"
+                id="wohnungen"
+                [(ngModel)]="formData.wohnungen"
+                name="wohnungen"
+                class="form-control border-custom"
+                placeholder="Anzahl Wohnungen"
+                min="0"
+                required
+              />
+            </div>
+            </div>
+            <!-- Baujahr Gebäude -->
+            <div class="d-flex align-items-center">
+              <label for="baujahr" class="form-label me-2 mb-0">Baujahr Gebäude:</label>
+              <input
+                type="number"
+                id="baujahr"
+                [(ngModel)]="formData.baujahr"
+                name="baujahr"
+                class="form-control border-custom"
+                placeholder="Baujahr"
+                min="1000"
+                max="2099"
+                required
+              />
+            </div>
+      
+            <!-- Länge Gebäude -->
+            <div class="d-flex align-items-center">
+              <label for="laenge" class="form-label me-2 mb-0">Länge Gebäude (L):</label>
+              <input
+                type="number"
+                step="0.01"
+                id="laenge"
+                [(ngModel)]="formData.laenge"
+                name="laenge"
+                class="form-control border-custom"
+                placeholder="Länge in m"
+                required
+              /><p class="ms-2 mb-0">m</p>
+            </div>
+      
+            <!-- Breite Gebäude -->
+            <div class="d-flex align-items-center">
+              <label for="breite" class="form-label me-2 mb-0">Breite Gebäude (B):</label>
+              <input
+                type="number"
+                step="0.01"
+                id="breite"
+                [(ngModel)]="formData.breite"
+                name="breite"
+                class="form-control border-custom"
+                placeholder="Breite in m"
+                required
+              /><p class="ms-2 mb-0">m</p>
+            </div>
+            <!-- Dropdown: Form des Gebäudes/Grundrisses -->
+<div class="d-flex align-items-center">
+    <label for="formDesGebaeudes" class="form-label me-2 mb-0">Form des Gebäudes/Grundrisses:</label>
+    <select id="formDesGebaeudes" [(ngModel)]="formData.formDesGebaeudes" name="formDesGebaeudes" class="form-select border-custom">
+      <option value="L-Form">L-Form</option>
+      <option value="U-Form">U-Form</option>
+      <option value="T-Form">T-Form</option>
+      <option value="Rechteck/Viereck">Rechteck/Viereck</option>
+    </select>
+  </div>
+  
+  <!-- Dropdown: Gebäude grenzt an beheizten Anbau oder Nachbargebäude -->
+  <div class="d-flex align-items-center">
+    <label for="gebaeudeGrenzt" class="form-label me-2 mb-0">Gebäude grenzt an beheizten Anbau oder Nachbargebäude:</label>
+    <select id="gebaeudeGrenzt" [(ngModel)]="formData.gebaeudeGrenzt" name="gebaeudeGrenzt" class="form-select border-custom">
+      <option value="ja">Ja</option>
+      <option value="nein">Nein</option>
+    </select>
+  </div>
+  
+  <!-- Input: Anzahl Vollgeschosse -->
+  <div class="d-flex align-items-center">
+    <label for="anzahlVollgeschosse" class="form-label me-2 mb-0">Anzahl Vollgeschosse (ohne Dach- & Kellergeschoss):</label>
+    <input
+      type="number"
+      id="anzahlVollgeschosse"
+      [(ngModel)]="formData.anzahlVollgeschosse"
+      name="anzahlVollgeschosse"
+      class="form-control border-custom"
+      placeholder="Anzahl"
+      min="0"
+      required
+    />
+  </div>
+  
+  <!-- Input: Geschosshöhe -->
+  <div class="d-flex align-items-center">
+    <label for="geschosshoehe" class="form-label me-2 mb-0">Geschosshöhe:</label>
+    <input
+      type="number"
+      step="0.01"
+      id="geschosshoehe"
+      [(ngModel)]="formData.geschosshoehe"
+      name="geschosshoehe"
+      class="form-control border-custom"
+      placeholder="Höhe in m"
+      required
+    /><p class="ms-2 mb-0">m</p>
+  </div>
+  
+  <!-- Dropdown: Bauweise -->
+  <div class="d-flex align-items-center">
+    <label for="bauweise" class="form-label me-2 mb-0">Bauweise:</label>
+    <select id="bauweise" [(ngModel)]="formData.bauweise" name="bauweise" class="form-select border-custom">
+      <option value="Massiv">Massiv</option>
+      <option value="Holz">Holz</option>
+      <option value="Fachwerkhaus">Fachwerkhaus</option>
+    </select>
+  </div>
+</div>
+  <h4 class="mb-3">Fenster</h4>
+    <!-- Fenster Section -->
+<div class="d-flex align-items-center flex-wrap gap-3 mb-3">
+
+<!-- Dropdown: Baujahr Fenster Abweichend vom Baujahr Haus -->
+<div class="d-flex align-items-center ">
+  <label for="baujahrFenster" class="form-label me-2 mb-0">Baujahr Fenster Abweichend vom Baujahr Haus:</label>
+  <select id="baujahrFenster" [(ngModel)]="formData.baujahrFenster" name="baujahrFenster" class="form-select border-custom">
+    <option value="ja">Ja</option>
+    <option value="nein">Nein</option>
+  </select>
+</div>
+
+<!-- Dropdown: Ausführung Verglasung Fenster -->
+<div class="d-flex align-items-center">
+  <label for="verglasungFenster" class="form-label me-2 mb-0">Ausführung Verglasung Fenster:</label>
+  <select id="verglasungFenster" [(ngModel)]="formData.verglasungFenster" name="verglasungFenster" class="form-select border-custom">
+    <option value="1-fach">1-fach</option>
+    <option value="2-fach">2-fach</option>
+    <option value="3-fach">3-fach</option>
+  </select>
+</div>
+
+<!-- Dropdown: Material -->
+<div class="d-flex align-items-center">
+  <label for="materialFenster" class="form-label me-2 mb-0">Material Fenster:</label>
+  <select id="materialFenster" [(ngModel)]="formData.materialFenster" name="materialFenster" class="form-select border-custom">
+    <option value="Holz">Holz</option>
+    <option value="Kunststoff">Kunststoff</option>
+    <option value="Alu">Alu</option>
+    <option value="Holz-Alu">Holz-Alu</option>
+  </select>
+</div>
+</div>
+<!-- Anbau Section -->
+<h4 class="mb-3">Anbau</h4> <!-- Title for the Anbau section -->
+<div class="d-flex align-items-center flex-wrap gap-3 mb-3"> <!-- Flex column for clean alignment -->
+
+  <!-- Dropdown: Beheizter Anbau vorhanden -->
+  <div class="d-flex align-items-center">
+    <label for="beheizterAnbau" class="form-label me-2 mb-0">Beheizter Anbau vorhanden:</label>
+    <select id="beheizterAnbau" [(ngModel)]="formData.beheizterAnbau" name="beheizterAnbau" class="form-select border-custom">
+      <option value="ja">Ja</option>
+      <option value="nein">Nein</option>
+    </select>
+  </div>
+
+  <!-- Input: Baujahr Anbau -->
+  <div class="d-flex align-items-center">
+    <label for="baujahrAnbau" class="form-label me-2 mb-0">Baujahr Anbau:</label>
+    <input
+      type="number"
+      id="baujahrAnbau"
+      [(ngModel)]="formData.baujahrAnbau"
+      name="baujahrAnbau"
+      class="form-control border-custom"
+      placeholder="Baujahr"
+      min="1000"
+      max="2099"
+      required
+    />
+  </div>
+
+  <!-- Input: Höhe des Anbaus -->
+  <div class="d-flex align-items-center">
+    <label for="hoeheAnbau" class="form-label me-2 mb-0">Höhe des Anbaus:</label>
+    <input
+      type="number"
+      step="0.01"
+      id="hoeheAnbau"
+      [(ngModel)]="formData.hoeheAnbau"
+      name="hoeheAnbau"
+      class="form-control border-custom"
+      placeholder="Höhe in m"
+      required
+    /><p class="ms-2 mb-0">m</p> 
+  </div>
+
+</div>
+
+<!-- Anlage / Lüftung Section -->
+<h4 class="mb-3">Anlage / Lüftung</h4> <!-- Title for the section -->
+<div class="d-flex align-items-center flex-wrap gap-3 mb-3"> <!-- Flex column for alignment -->
+
+  <!-- Dropdown: Lüftungsanlage -->
+  <div class="d-flex align-items-center">
+    <label for="lueftungsanlage" class="form-label me-2 mb-0">Lüftungsanlage:</label>
+    <select id="lueftungsanlage" [(ngModel)]="formData.lueftungsanlage" name="lueftungsanlage" class="form-select border-custom">
+      <option value="ja">Ja</option>
+      <option value="nein">Nein</option>
+    </select>
+  </div>
+
+  <!-- Conditional Dropdown: Lüftungsanlage Type (shown if "Ja") -->
+  <div *ngIf="formData.lueftungsanlage === 'ja'" class="d-flex align-items-center">
+    <label for="lueftungsanlageType" class="form-label me-2 mb-0">Lüftungsanlage Typ:</label>
+    <select id="lueftungsanlageType" [(ngModel)]="formData.lueftungsanlageType" name="lueftungsanlageType" class="form-select border-custom">
+      <option value="ohne_waermerueckgewinnung">Lüftungsanlage ohne Wärmerückgewinnung</option>
+      <option value="mit_waermerueckgewinnung">Lüftungsanlage mit Wärmerückgewinnung</option>
+    </select>
+  </div>
+
+  <!-- Dropdown: Art der Lüftung -->
+  <div class="d-flex align-items-center">
+    <label for="artDerLueftung" class="form-label me-2 mb-0">Art der Lüftung:</label>
+    <select id="artDerLueftung" [(ngModel)]="formData.artDerLueftung" name="artDerLueftung" class="form-select border-custom">
+      <option value="fensterlueftung">Fensterlüftung</option>
+      <option value="schachtlueftung">Schachtlüftung</option>
+    </select>
+  </div>
+
+  <!-- Dropdown: Gebäudekühlung -->
+  <div class="d-flex align-items-center">
+    <label for="gebaeudekuehlung" class="form-label me-2 mb-0">Gebäudekühlung:</label>
+    <select id="gebaeudekuehlung" [(ngModel)]="formData.gebaeudekuehlung" name="gebaeudekuehlung" class="form-select border-custom">
+      <option value="vorhanden">Vorhanden</option>
+      <option value="nicht_vorhanden">Nicht vorhanden</option>
+      <option value="groesser_12kw">Größer als 12kW</option>
+      <option value="kleiner_gleich_12kw">Kleiner/gleich 12 kW</option>
+    </select>
+  </div>
+
+  <!-- Dropdown: Art der Kühlung -->
+  <div class="d-flex align-items-center">
+    <label for="artDerKuehlung" class="form-label me-2 mb-0">Art der Kühlung (bei Klimaanlage):</label>
+    <select id="artDerKuehlung" [(ngModel)]="formData.artDerKuehlung" name="artDerKuehlung" class="form-select border-custom">
+      <option value="passive_kuehlung">Passive Kühlung</option>
+      <option value="gelieferte_kaelte">Gelieferte Kälte</option>
+      <option value="kuehlung_aus_strom">Kühlung aus Strom</option>
+      <option value="kuehlung_aus_waerme">Kühlung aus Wärme</option>
+    </select>
+  </div>
+
+</div>
+
+<!-- Heizungsanlage Section -->
+<h4 class="mb-3">Heizungsanlage</h4> <!-- Title for the section -->
+<div class="d-flex align-items-center flex-wrap gap-3 mb-3"> <!-- Flex column for alignment -->
+
+  <!-- Dropdown: Warmwasseranlage -->
+  <div class="d-flex align-items-center">
+    <label for="warmwasseranlage" class="form-label me-2 mb-0">Warmwasseranlage:</label>
+    <select id="warmwasseranlage" [(ngModel)]="formData.warmwasseranlage" name="warmwasseranlage" class="form-select border-custom">
+      <option value="heizungsanlage_warmwasser">Heizungsanlage mit Warmwasserbereitung</option>
+      <option value="warmwasser_solarthermie">Warmwasserbereitung mit Solarthermie</option>
+    </select>
+  </div>
+
+  <!-- Dropdown: Heizungsatyp -->
+  <div class="d-flex align-items-center">
+    <label for="heizungsatyp" class="form-label me-2 mb-0">Heizungsatyp:</label>
+    <select id="heizungsatyp" [(ngModel)]="formData.heizungsatyp" name="heizungsatyp" class="form-select border-custom">
+      <option value="standartkessel">Standartkessel</option>
+      <option value="niedertemperaturkessel">Niedertemperaturkessel</option>
+      <option value="waermepumpe_luft">Wärmepumpe (Luft)</option>
+      <option value="waermepumpe_wasser">Wärmepumpe (Wasser)</option>
+      <option value="waermepumpe_erde">Wärmepumpe (Erde)</option>
+      <option value="etagenheizung">Etagenheizung</option>
+      <option value="infrarotheizung">Infrarotheizung</option>
+      <option value="elektro_direktheizung">Elektro-Direktheizung</option>
+      <option value="elektro_nachtspeicher">Elektro Nachtspeicher</option>
+    </select>
+  </div>
+
+  <!-- Dropdown: Standort Heizungsanlage -->
+  <div class="d-flex align-items-center">
+    <label for="standortHeizungsanlage" class="form-label me-2 mb-0">Standort Heizungsanlage:</label>
+    <select id="standortHeizungsanlage" [(ngModel)]="formData.standortHeizungsanlage" name="standortHeizungsanlage" class="form-select border-custom">
+      <option value="innerhalb">innerhalb thermischer Hülle (Haus)</option>
+      <option value="ausserhalb">außerhalb thermischer Hülle</option>
+    </select>
+  </div>
+
+  <!-- File Upload: Foto des Typenschilds -->
+  <div class="d-flex align-items-center">
+    <label for="fotoTypenschild" class="form-label mb-1">Foto des Typenschilds der Heizungsanlage oder Foto der Anlage:</label>
+    <input
+      type="file"
+      id="fotoTypenschild"
+      [(ngModel)]="formData.fotoTypenschild"
+      name="fotoTypenschild"
+      class="form-control border-custom"
+      accept="image/*"
+    />
+  </div>
+
+  <!-- Input: Baujahr Heizung -->
+  <div class="d-flex align-items-center">
+    <label for="baujahrHeizung" class="form-label me-2 mb-0">Baujahr Heizung:</label>
+    <input
+      type="number"
+      id="baujahrHeizung"
+      [(ngModel)]="formData.baujahrHeizung"
+      name="baujahrHeizung"
+      class="form-control border-custom"
+      placeholder="Baujahr"
+      min="1000"
+      max="2099"
+      required
+    />
+  </div>
+
+</div>
+<!-- Regenerative Energieträger Section -->
+<h4 class="mb-3">Regenerative Energieträger</h4> <!-- Section Title -->
+<div class="d-flex align-items-center flex-wrap gap-3 mb-3"> <!-- Flex column for alignment -->
+
+  <!-- Dropdown: Photovoltaikanlage -->
+  <div class="d-flex align-items-center">
+    <label for="photovoltaikanlage" class="form-label me-2 mb-0">Photovoltaikanlage:</label>
+    <select id="photovoltaikanlage" [(ngModel)]="formData.photovoltaikanlage" name="photovoltaikanlage" class="form-select border-custom">
+        <option value="ja">Ja</option>
+        <option value="nein">Nein</option>
+    </select>
+  </div>
+
+  <!-- Dropdown: Solarthermie -->
+  <div class="d-flex align-items-center">
+    <label for="solarthermie" class="form-label me-2 mb-0">Solarthermie (Warmwasseraufbereitung):</label>
+    <select id="solarthermie" [(ngModel)]="formData.solarthermie" name="solarthermie" class="form-select border-custom">
+        <option value="ja">Ja</option>
+        <option value="nein">Nein</option>
+    </select>
+  </div>
+
+  <!-- Dropdown: Pellets -->
+  <div class="d-flex align-items-center">
+    <label for="pellets" class="form-label me-2 mb-0">Pellets:</label>
+    <select id="pellets" [(ngModel)]="formData.pellets" name="pellets" class="form-select border-custom">
+        <option value="ja">Ja</option>
+        <option value="nein">Nein</option>
+    </select>
+  </div>
+
+</div>
+
+<!-- Rohrleitung Section -->
+<h4 class="mb-3">Rohrleitung</h4> <!-- Section Title -->
+<div class="d-flex align-items-center flex-wrap gap-3 mb-3"> <!-- Flex column for alignment -->
+
+  <!-- Input: Baujahr der Rohrleitungssystems -->
+  <div class="d-flex align-items-center">
+    <label for="baujahrRohrleitung" class="form-label me-2 mb-0">Baujahr der Rohrleitungssystems:</label>
+    <input
+      type="number"
+      id="baujahrRohrleitung"
+      [(ngModel)]="formData.baujahrRohrleitung"
+      name="baujahrRohrleitung"
+      class="form-control border-custom"
+      placeholder="Baujahr eingeben"
+      min="1000"
+      max="2099"
+      required
+    />
+  </div>
+
+</div>
+<!-- Keller Section -->
+<h4 class="mb-3">Keller</h4> <!-- Section Title -->
+<div class="d-flex align-items-center flex-wrap gap-3 mb-3"> <!-- Flex column for alignment -->
+
+  <!-- Dropdown: Kellergeschoss vorhanden -->
+  <div class="d-flex align-items-center">
+    <label for="kellergeschossVorhanden" class="form-label me-2 mb-0">Kellergeschoss vorhanden:</label>
+    <select
+      id="kellergeschossVorhanden"
+      [(ngModel)]="formData.kellergeschossVorhanden"
+      name="kellergeschossVorhanden"
+      class="form-select border-custom"
+      required
+    >
+      <option value="ja">Ja</option>
+      <option value="nein">Nein</option>
+    </select>
+  </div>
+
+  <!-- Dropdown: Kellergeschoss -->
+  <div class="d-flex align-items-center">
+    <label for="kellergeschossTyp" class="form-label me-2 mb-0">Kellergeschoss:</label>
+    <select
+      id="kellergeschossTyp"
+      [(ngModel)]="formData.kellergeschossTyp"
+      name="kellergeschossTyp"
+      class="form-select border-custom"
+      required
+    >
+      <option value="vollUnterkellert">Voll Unterkellert</option>
+      <option value="teilweiseUnterkellert">Teilweise Unterkellert</option>
+    </select>
+  </div>
+
+  <!-- Dropdown: Kellergeschoss Beheizung -->
+  <div class="d-flex align-items-center">
+    <label for="kellergeschossBeheizung" class="form-label me-2 mb-0">Kellergeschoss:</label>
+    <select
+      id="kellergeschossBeheizung"
+      [(ngModel)]="formData.kellergeschossBeheizung"
+      name="kellergeschossBeheizung"
+      class="form-select border-custom"
+      required
+    >
+      <option value="unbeheizt">Unbeheizt</option>
+      <option value="beheizt">Beheizt</option>
+    </select>
+  </div>
+
+  <!-- Dropdown: Kellerbauweise -->
+  <div class="d-flex align-items-center">
+    <label for="kellerbauweise" class="form-label me-2 mb-0">Kellergeschoss:</label>
+    <select
+      id="kellerbauweise"
+      [(ngModel)]="formData.kellerbauweise"
+      name="kellerbauweise"
+      class="form-select border-custom"
+      required
+    >
+      <option value="massiv">Massiv</option>
+      <option value="holz">Holz</option>
+      <option value="stahlbeton">Stahlbeton</option>
+    </select>
+  </div>
+
+  <!-- Input: Bodendämmung -->
+  <div class="d-flex align-items-center">
+    <label for="bodendaemmung" class="form-label me-2 mb-0">Bodendämmung:</label>
+    <input
+      type="number"
+      step="0.01"
+      id="bodendaemmung"
+      [(ngModel)]="formData.bodendaemmung"
+      name="bodendaemmung"
+      class="form-control border-custom"
+      placeholder=""
+      required
+    /><p class="ms-2 mb-0">cm</p>
+  </div>
+
+</div>
+
+<!-- Dach Section -->
+<h4 class="mb-3">Dach</h4> <!-- Section Title -->
+<div class="d-flex align-items-center flex-wrap gap-3 mb-3"> <!-- Flex column for alignment -->
+  <!-- Dropdown: Dachgeschoss ausgebaut und beheizt -->
+  <div class="d-flex align-items-center">
+    <label for="dachgeschossBeheizt" class="form-label me-2 mb-0">Dachgeschoss ausgebaut und beheizt:</label>
+    <select
+      id="dachgeschossBeheizt"
+      [(ngModel)]="formData.dachgeschossBeheizt"
+      name="dachgeschossBeheizt"
+      class="form-select border-custom"
+      required
+    >
+      <option value="ja">Ja</option>
+      <option value="nein">Nein</option>
+    </select>
+  </div>
+
+  <!-- Dropdown: Dachausrichtung -->
+  <div class="d-flex align-items-center">
+    <label for="dachausrichtung" class="form-label me-2 mb-0">Dachausrichtung:</label>
+    <select
+      id="dachausrichtung"
+      [(ngModel)]="formData.dachausrichtung"
+      name="dachausrichtung"
+      class="form-select border-custom"
+      required
+    >
+      <option value="Süden">Süden</option>
+      <option value="Osten">Osten</option>
+      <option value="Westen">Westen</option>
+      <option value="Norden">Norden</option>
+      <option value="SO">SO</option>
+      <option value="SW">SW</option>
+      <option value="NO">NO</option>
+      <option value="NW">NW</option>
+    </select>
+  </div>
+
+  <!-- Input: Dachdämmung in cm -->
+  <div class="d-flex align-items-center">
+    <label for="dachdaemmung" class="form-label me-2 mb-0">Dachdämmung in cm:</label>
+    <input
+      type="number"
+      step="0.01"
+      id="dachdaemmung"
+      [(ngModel)]="formData.dachdaemmung"
+      name="dachdaemmung"
+      class="form-control border-custom"
+      placeholder=""
+      required
+    /><p class="ms-2 mb-0">cm</p>
+  </div>
+
+</div>
+
+<!-- Fassade & Dämmung Section -->
+<h4 class="mb-3">Fassade & Dämmung</h4> <!-- Section Title -->
+<div class="d-flex align-items-center flex-wrap gap-3 mb-3"> <!-- Flex column for alignment -->
+
+  <!-- Dropdown: Wandstärke in cm -->
+  <div class="d-flex align-items-center">
+    <label for="wandstaerke" class="form-label me-2 mb-0">Wandstärke in cm:</label>
+    <select
+      id="wandstaerke"
+      [(ngModel)]="formData.wandstaerke"
+      name="wandstaerke"
+      class="form-select border-custom"
+      required
+    >
+      <option *ngFor="let option of [24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46]" [value]="option">{{ option }}</option>
+    </select>
+  </div>
+
+  <!-- Dropdown: Wandstärke Anbau in cm -->
+  <div class="d-flex align-items-center">
+    <label for="wandstaerkeAnbau" class="form-label me-2 mb-0">Wandstärke Anbau in cm:</label>
+    <select
+      id="wandstaerkeAnbau"
+      [(ngModel)]="formData.wandstaerkeAnbau"
+      name="wandstaerkeAnbau"
+      class="form-select border-custom"
+      required
+    >
+      <option *ngFor="let option of [24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46]" [value]="option">{{ option }}</option>
+    </select>
+  </div>
+
+  <!-- Input: Dämmung Fassade in cm -->
+  <div class="d-flex align-items-center">
+    <label for="daemmungFassade" class="form-label me-2 mb-0">Dämmung Fassade in cm:</label>
+    <input
+      type="number"
+      step="0.01"
+      id="daemmungFassade"
+      [(ngModel)]="formData.daemmungFassade"
+      name="daemmungFassade"
+      class="form-control border-custom"
+      placeholder=""
+      required
+    /><p class="ms-2 mb-0">cm</p>
+  </div>
+
+    <!-- Dropdown: Wandbauart -->
+    <div class="d-flex align-items-center">
+        <label for="wandbauart" class="form-label me-2 mb-0">Wandbauart:</label>
+        <select
+          id="wandbauart"
+          [(ngModel)]="formData.wandbauart"
+          name="wandbauart"
+          class="form-select border-custom"
+        >
+          <option value="Hochlochziegel">Hochlochziegel</option>
+          <option value="Bimsbetonhohlstein">Bimsbetonhohlstein (zB. Poroton)</option>
+          <option value="ZweischaligeBauweise">Zweischalige Bauweise</option>
+          <option value="Sonstige">Sonstige</option>
+        </select>
+      </div>
+      
+  <!-- Input: Anbau-Wanddämmung in cm -->
+  <div class="d-flex align-items-center">
+    <label for="anbauWanddaemmung" class="form-label me-2 mb-0">Anbau-Wanddämmung in cm:</label>
+    <input
+      type="number"
+      step="0.01"
+      id="anbauWanddaemmung"
+      [(ngModel)]="formData.anbauWanddaemmung"
+      name="anbauWanddaemmung"
+      class="form-control border-custom"
+      placeholder=""
+      required
+    /><p class="ms-2 mb-0">cm</p>
+  </div>
+
+  <!-- Dropdown: Massivwände -->
+  <div class="d-flex align-items-center">
+    <label for="massivwaende" class="form-label me-2 mb-0">Massivwände:</label>
+    <select
+      id="massivwaende"
+      [(ngModel)]="formData.massivwaende"
+      name="massivwaende"
+      class="form-select border-custom"
+      required
+    >
+      <option value="ueber20cm">über 20 cm</option>
+      <option value="vollziegel">Vollziegel</option>
+      <option value="kalksandstein">Kalksandstein oder Bimsbetonvollstein 20-23 cm</option>
+    </select>
+  </div>
+
+  <!-- Dropdown: Zusatzdämmung -->
+  <div class="d-flex align-items-center">
+    <label for="zusatzdaemmung" class="form-label me-2 mb-0">Zusatzdämmung (nachträgliche Dämmung):</label>
+    <select
+      id="zusatzdaemmung"
+      [(ngModel)]="formData.zusatzdaemmung"
+      name="zusatzdaemmung"
+      class="form-select border-custom"
+      required
+    >
+      <option value="ja">Ja</option>
+      <option value="nein">Nein</option>
+    </select>
+  </div>
+
+</div>
+<div class="d-flex justify-content-end mt-4">
+  <button type="submit" class="btn btn-primary">Formular absenden</button>
+</div>
+
+    </form>
+  </div>
+  
